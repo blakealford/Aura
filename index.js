@@ -46,15 +46,14 @@ bot.on('message', message => {
             message.channel.send(varsp);
     break; 
 
-    //vars
-
-     var Operational = ('All services are online, thank you for using Aura!')
-     var Offilne = ('Services are offilne, please wait untill they are back up')
+        
+      //Operational message 'All services are online, thank you for using Aura!
+     // Offilne message  = Services are offilne, please wait untill they are back up
 
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addField('**Operational**' , + Offilne )
+            .addField('**Offinle**', ' Services are offilne, please wait untill they are back up')
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
