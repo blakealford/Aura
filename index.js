@@ -2,7 +2,28 @@ const Discord = require('discord.js');
 
 const bot = new Discord.Client();
 
+var fs = require('fs');
+
 var version = ('1.0.1')
+
+//Files
+bot.commands = new Discord.Collection();
+
+fs.readdir('./commands/', (err, files) => {
+    if(err) conosle.error(err); 
+
+    var jsfiles = files.filter(f => f.split('.').pop() === 'js');
+    if(jsfiles.length <= 0) { return console.log('No commands found...')}
+    else { console.log(jsfiles.length + ' commands found') }
+
+    jsfiles.forEach((f, i) => {
+        var cmds = require(`./commands/${f}`);
+        console.log*(`Command ${f} loading...`)
+        bot.commands.set(cmds.config.command, cmds); 
+    })
+
+})
+
 
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
@@ -15,29 +36,21 @@ bot.on('ready', () =>{
 bot.on('message', message => {
     //variables
      var sender = message.author;
-     var msg = message.content.toUpperCase();
-     var prefix = "-";
-     var cont = message.content.slice(prefix.length).split(' '); 
-     var args = cont.slice(1);
-    if(!message.content.startsWith('-')) return;
-    switch(cont.toString()){
     
-        case 'help':
-        const help = new Discord.MessageEmbed()
-        .setTitle('Aura Bot Commands')
-        .setThumbnail('https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400')
-        .addFields(
-            {name: 'Moderation', value: '`-help moderation`', inline: true }, 
-            {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
-            {name: 'Music', value: '`-help Music`', inline: true }, 
-            {name: 'Commands', value: '`-help Commands`', inline: true }, 
-            {name: 'Extra Support', value: 'Join Our Discord - https://discord.gg/kwC5QAx '}
-        )  
-        .setColor(0x173f5f)
-        .setFooter('Aura Discord Bot | Developed By Varsp');
-        message.channel.send(help);
-        
-    break; 
+     var msg = message.content.toUpperCase();
+    
+     var prefix = "-";
+    
+     var cont = message.content.slice(prefix.length).split(' '); 
+    
+     var args = cont.slice(1);
+    
+     if(!message.content.startsWith('-')) return;
+
+    var cmd = bot.commands.get(cont[0])
+    if (cmd) cmd.run(bot, message, args); 
+
+    switch(cont.toString()){
 
         case 'varsp':
             const varsp = new Discord.MessageEmbed()
@@ -45,15 +58,15 @@ bot.on('message', message => {
             .setColor(0x173f5f);
             message.channel.send(varsp);
     break; 
-
+6
         
-      //Operational message 'All services are online, thank you for using Aura!
+      //Operational message = All services are online, thank you for using Aura!
      // Offilne message  = Services are offilne, please wait untill they are back up
 
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addField('**Offinle**', ' Services are offilne, please wait untill they are back up')
+            .addField('**Offline**', ' Services are offilne, please wait untill they are back up')
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
