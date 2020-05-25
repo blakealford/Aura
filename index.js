@@ -1,4 +1,4 @@
-`const botconfig = require('./botconfig')
+const botconfig = require('./botconfig')
 
 const Discord = require('discord.js');
 
@@ -46,4 +46,4 @@ bot.on('msg', msg=> {
     }
 })
 
-bot.login(process.env.token);`
+bot.login(process.env.token);
