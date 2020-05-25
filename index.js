@@ -1,4 +1,4 @@
-const botconfig = require('./botconfig')
+`const botconfig = require('./botconfig')
 
 const Discord = require('discord.js');
 
@@ -16,6 +16,8 @@ bot.on('ready', () =>{
 bot.on('msg', msg=> {
 
     let args = msg.content.substring(prefix.length).split(" ");
+     
+    console.log(args[0]);
 
     switch (args[0].toString()){
 
@@ -44,4 +46,4 @@ bot.on('msg', msg=> {
     }
 })
 
-bot.login(process.env.token);
+bot.login(process.env.token);`
