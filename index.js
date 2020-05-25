@@ -19,7 +19,7 @@ bot.on('msg', msg=> {
 
     case 'help':
         const help = new Discord.MessageEmbed()
-        .setAuthor('Aura Bot Commands', 'https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400'
+        .setAuthor('Aura Bot Commands', 'https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400')
         .addFields(
             {name: 'Moderation', value: '`-help moderation`', inline: true }, 
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
@@ -27,7 +27,7 @@ bot.on('msg', msg=> {
             {name: 'Commands', value: '`-help Commands`', inline: true }, 
         )  
         .setColor(0x173f5f)
-        .setFooter('Aura Discord Bot | Developed By Varsp')
+        .setFooter('Aura Discord Bot | Developed By Varsp');
         msg.channel.send(help);
         
     break; 
