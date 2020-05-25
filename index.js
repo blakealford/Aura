@@ -49,7 +49,7 @@ bot.on('message', message => {
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addFields('**Operational**, \n All services are online, thank you for using Aura!')
+            .addFields('**Operational**', 'All services are online, thank you for using Aura!')
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
@@ -62,7 +62,7 @@ bot.on('message', message => {
         const moderation = new Discord.MessageEmbed()
                .setTitle('Moderator Commands')
                .setThumbnail('https://images-ext-2.discordapp.net/external/RyBiRwUtq8VqdDb6Sm77J303UEziO55Ujqu8FaRCfQ4/https/i.imgur.com/JsgxK3Y.png?width=160&height=160')
-               .addFields('Soon To Add')
+               .addFields('N/A', 'Soon To Come')
                .setColor(0x173f5f)
                .setFooter('Aura Discord Bot | Developed By Varsp');
                 message.channel.send(moderation);
