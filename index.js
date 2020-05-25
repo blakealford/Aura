@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const bot = new Discord.Client();
 
-var version = ('1.0.0')
+var version = ('1.0.1')
 
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
