@@ -1,29 +1,25 @@
-const botconfig = require('./botconfig')
-
 const Discord = require('discord.js');
 
 const bot = new Discord.Client();
 
 var version = ('1.0.0')
 
-const prefix = ('-')
-
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
     bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })                                                                                                                           
 });
 
-bot.on('msg', msg=> {
-
-    let args = msg.content.substring(prefix.length).split(" ");
-     
-    console.log(args[0]);
-
-    switch (args[0].toString()){
-
+bot.on('message', message => {
+    //variables
+     var sender = message.author;
+     var msg = message.content.toUpperCase();
+     var prefix = "-";
+     var cont = message.content.slice(prefix.length).split(' '); 
+     var args = cont.slice(1);
+    switch(cont.toString()){
     case 'help':
         const help = new Discord.MessageEmbed()
-        .setTitle('Aura Bot COmmands')
+        .setTitle('Aura Bot Commands')
         .addField(
             {name: 'Moderation', value: '`-help moderation`', inline: true }, 
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
@@ -32,7 +28,7 @@ bot.on('msg', msg=> {
         )  
         .setColor(0x173f5f)
         .setFooter('Aura Discord Bot | Developed By Varsp');
-        msg.channel.send(help);
+        message.channel.send(help);
         
     break; 
 
@@ -40,7 +36,7 @@ bot.on('msg', msg=> {
             const varsp = new Discord.MessageEmbed() 
             .setTitle('He is a massive nerd and made the bot')
             .setColor(0x4457C1);
-            msg.channel.send(varsp);
+            message.channel.send(varsp);
 
             break; 
     }
