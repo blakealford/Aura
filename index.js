@@ -28,7 +28,7 @@ bot.on('message', message => {
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
             {name: 'Music', value: '`-help Music`', inline: true }, 
             {name: 'Commands', value: '`-help Commands`', inline: true }, 
-            {name: 'Extra Support', value: 'Join Our DiSscord - https://discord.gg/kwC5QAx '}
+            {name: 'Extra Support', value: 'Join Our Discord - https://discord.gg/kwC5QAx '}
         )  
         .setColor(0x173f5f)
         .setFooter('Aura Discord Bot | Developed By Varsp');
@@ -43,7 +43,9 @@ bot.on('message', message => {
             message.channel.send(varsp);
 
     break; 
-        
+    
+    //Plugin Commands
+    
     case 'moderation':
         const moderation = new Discord.MessageEmbed()
                .setTitle('Moderator Commands')
