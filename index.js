@@ -6,7 +6,9 @@ var version = ('1.0.0')
 
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
-    bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })                                                                                                                           
+    bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })  
+    bot.user.setStatus('dnd')
+
 });
 
 bot.on('message', message => {
@@ -43,6 +45,15 @@ bot.on('message', message => {
             message.channel.send(varsp);
 
     break; 
+
+        case 'status':
+            const status = new DiscordMessageEmbed()
+            .setTitile('Aura Status')
+            .addFields('**Operational**, \n All services are online, thank you for using Aura!')
+            .setColor(0x173f5f);
+            message.channel.send(status);
+
+    break;
     
     //Plugin Commands
     
