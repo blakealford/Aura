@@ -6,8 +6,9 @@ var version = ('1.0.0')
 
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
-    bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })  
     bot.user.setStatus('dnd')
+    bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })  
+    
 
 });
 
@@ -40,7 +41,7 @@ bot.on('message', message => {
 
         case 'varsp':
             const varsp = new Discord.MessageEmbed()
-            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On Twitter [@DeveloperVarsp](https://twiiter.com/DeveloperVarsp)')
+            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On Twitter @DeveloperVarsp')
             .setColor(0x173f5f);
             message.channel.send(varsp);
     break; 
@@ -49,7 +50,8 @@ bot.on('message', message => {
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
             .addFields('**Operational**, \n All services are online, thank you for using Aura!')
-            .setColor(0x173f5f);
+            .setColor(0x173f5f)
+            .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
 
     break;
