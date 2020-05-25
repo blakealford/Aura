@@ -21,7 +21,7 @@ bot.on('msg', msg=> {
 
     case 'help':
         const help = new Discord.MessageEmbed()
-        .setAuthor('Aura Bot Commands')
+        .setTitle('Aura Bot COmmands')
         .addField(
             {name: 'Moderation', value: '`-help moderation`', inline: true }, 
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
