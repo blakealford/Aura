@@ -6,6 +6,8 @@ const bot = new Discord.Client();
 
 var version = ('1.0.0')
 
+const prefix = ('-')
+
 bot.on('ready', () =>{
     console.log('Aura Bot Is Now Online! Running Version ' + version);
     bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`,  { type: 'WATCHING' })                                                                                                                           
@@ -13,7 +15,7 @@ bot.on('ready', () =>{
 
 bot.on('msg', msg=> {
 
-    let args = msg.content.substring(botconfig.prefix.length).split(" ");
+    let args = msg.content.substring(prefix.length).split(" ");
 
     switch (args[0].toString()){
 
