@@ -18,9 +18,8 @@ bot.on('msg', msg=> {
     switch (args[0].toString()){
 
     case 'help':
-        const help = new Discord.MesasgeEmbed()
-        .setTitle('Aura Bot Commands', 'https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400')
-        .setThumbnail('https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400')
+        const help = new Discord.MessageEmbed()
+        .setTitle('Aura Bot Commands', 'https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400'
         .addFields(
             {name: 'Moderation', value: '`-help moderation`', inline: true }, 
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
