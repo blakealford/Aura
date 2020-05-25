@@ -39,7 +39,7 @@ bot.on('message', message => {
     break; 
 
         case 'varsp':
-            const varsp = new DIscord.MessageEmbed()
+            const varsp = new Discord.MessageEmbed()
             .setTitile('He is a massive nerd and made the bot And You Should Follow Him On Twitter [@DeveloperVarsp](https://twiiter.com/DeveloperVarsp)')
             .setColor(0x173f5f);
             message.channel.send(varsp);
