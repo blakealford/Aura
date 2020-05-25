@@ -20,7 +20,7 @@ bot.on('message', message => {
     case 'help':
         const help = new Discord.MessageEmbed()
         .setTitle('Aura Bot Commands')
-        .addField(
+        .addFields(
             {name: 'Moderation', value: '`-help moderation`', inline: true }, 
             {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
             {name: 'Music', value: '`-help Music`', inline: true }, 
@@ -34,7 +34,7 @@ bot.on('message', message => {
 
         case 'varsp':
             const varsp = new Discord.MessageEmbed() 
-            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On twitter [@DeveloperVarsp](https://twitter.com/DeveloperVarsp)')
+            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On twitter @DeveloperVarsp')
             .setColor(0x173f5f);
             message.channel.send(varsp);
 
