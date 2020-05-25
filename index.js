@@ -54,7 +54,7 @@ bot.on('message', message => {
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addField('**Operational**' , + Operational)
+            .addField('**Operational**' , + Offilne)
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
