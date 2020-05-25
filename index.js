@@ -40,14 +40,14 @@ bot.on('message', message => {
 
         case 'varsp':
             const varsp = new Discord.MessageEmbed()
-            .setTitile('He is a massive nerd and made the bot And You Should Follow Him On Twitter [@DeveloperVarsp](https://twiiter.com/DeveloperVarsp)')
+            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On Twitter [@DeveloperVarsp](https://twiiter.com/DeveloperVarsp)')
             .setColor(0x173f5f);
             message.channel.send(varsp);
     break; 
 
         case 'status':
             const status = new Discord.MessageEmbed()
-            .setTitile('Aura Status')
+            .setTitle('Aura Status')
             .addFields('**Operational**, \n All services are online, thank you for using Aura!')
             .setColor(0x173f5f);
             message.channel.send(status);
