@@ -39,22 +39,21 @@ bot.on('message', message => {
     break; 
 
         case 'varsp':
-            const varsp = new Discord.MessageEmbed() 
-            .setTitle('He is a massive nerd and made the bot And You Should Follow Him On Twitter @DeveloperVarsp')
+            const varsp = new DIscord.MessageEmbed()
+            .setTitile('He is a massive nerd and made the bot And You Should Follow Him On Twitter [@DeveloperVarsp](https://twiiter.com/DeveloperVarsp)')
             .setColor(0x173f5f);
             message.channel.send(varsp);
-
     break; 
 
         case 'status':
-            const status = new DiscordMessageEmbed()
+            const status = new Discord.MessageEmbed()
             .setTitile('Aura Status')
             .addFields('**Operational**, \n All services are online, thank you for using Aura!')
             .setColor(0x173f5f);
             message.channel.send(status);
 
     break;
-    
+
     //Plugin Commands
     
     case 'moderation':
