@@ -5,7 +5,9 @@ const bot = new Discord.Client();
 var fs = require('fs');
 var path = require('path');
 
-var version = ('1.0.1')
+var version = ('1.0.1');
+
+var colourBlue = ("0x173f5f");
 
 //Files
 bot.commands = new Discord.Collection();
