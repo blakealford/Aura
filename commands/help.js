@@ -4,10 +4,6 @@ const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
 
-    if(args[0]) {
-        let command = args[0];
-        if(bot.commands.has(command)){
-            command = bot.commands.get(command);
             var help = new Discord.MessageEmbed()
             .setTitle('Aura Bot Commands')
             .setThumbnail('https://media.discordapp.net/attachments/714301789352099862/714302588799156316/Aura-Logo.png?width=400&height=400')
@@ -23,9 +19,9 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send(help);
             console.log('error')
        
+        
         }
-        }
-}
+
 
 module.exports.config = {
 command: "help"
