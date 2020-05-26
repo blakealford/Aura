@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
     }
     let kickEmbed = new Discord.MessageEmbed()
     .setAuthor(`Kick Moderation`, message.author.avatarURL({dynamic: true, format: 'png'}))
-    .setColor('RANDOM')
+    .setColor('0xFF0000')
     .addField("**User**:", kUser.user.tag, true)
     .addField("**Responsible Moderator**:", message.author.username, true)
     .addField("**Command Executed In**:", message.channel, true)
