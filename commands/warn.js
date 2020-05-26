@@ -1,5 +1,8 @@
 const Discord = require('discord.js')
 const ms = require("ms");
+const fs = require("fs");
+const path = require('path');
+
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 var colourBlue = ("0x173f5f");
 

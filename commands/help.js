@@ -1,7 +1,5 @@
 const Discord = require('discord.js')
 
-
-
 module.exports.run = async (bot, message, args) => {
 
             var help = new Discord.MessageEmbed()
