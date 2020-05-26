@@ -66,7 +66,7 @@ bot.on('message', message => {
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addField('**Offline**', ' Services are offilne, please wait untill they are back up')
+            .addField('**Online**', ' All services are online, thank you for using Aura!')
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
