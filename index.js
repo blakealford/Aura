@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 var fs = require('fs');
+var path = require('path');
 
 var version = ('1.0.1')
 
