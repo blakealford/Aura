@@ -23,13 +23,12 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send(help);
         }}
         if(!args[0]) {
-            message.delete();
             let embed = new Discord.MessageEmbed()
-            .setTitle('Join Our Discord For Support') 
+            .setTitle('Join Our Discord For Extra Support') 
             .addField(' -> discord.gg/kwC5QAx \n\n or DM the lead developer DevVarsp#0003')
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
-            meessage.author.send(embed);
+            message.author.send(embed);
         }
 }
 
