@@ -20,7 +20,7 @@ fs.readdir('./commands/', (err, files) => {
     jsfiles.forEach((f, i) => {
         var cmds = require(`./commands/${f}`);
         console.log*(`Command ${f} loading...`)
-        bot.commands.set(cmds.config.command, cmds); 
+        bot.commands.set(cmds.config.commands, cmds); 
     })
 
 })
