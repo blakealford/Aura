@@ -21,6 +21,8 @@ module.exports.run = async (bot, message, args) => {
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(help);
+            console.log('help embed')
+       
         }
         }
 }
