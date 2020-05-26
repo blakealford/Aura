@@ -21,14 +21,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor(0x173f5f)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(help);
-        }}
-        if(!args[0]) {
-            let embed = new Discord.MessageEmbed()
-            .setTitle('Join Our Discord For Extra Support') 
-            .addField(' -> discord.gg/kwC5QAx \n\n or DM the lead developer DevVarsp#0003')
-            .setColor(0x173f5f)
-            .setFooter('Aura Discord Bot | Developed By Varsp');
-            message.author.send(embed);
+        }
         }
 }
 
