@@ -3,6 +3,7 @@ const moment = require("moment")
 
 module.exports.run = async (bot, message, args) => {
 
+    if (!message.member.hasPermission("BAN_MEMBERS"));{
         const userPerms = new Discord.MessageEmbed()
             .setColor(0xFF0000)
             .setTitle("You need `Ban Members` permission to execute this command")
