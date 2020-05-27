@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) {
         return message.channel.send("You need `Ban Members` permission to execute this command")
     }
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
+    const bUser = message.mentions.members.first() || message.guild.members.resolve(args[0]);
     if (!bUser) {
         return message.channel.send("Please mention a valid user.")
     }
