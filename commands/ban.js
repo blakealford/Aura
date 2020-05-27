@@ -4,7 +4,7 @@ const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermission("BAN_MEMBERS", "ADMINISTRATOR"));{
+    if (!message.member.hasPermission("BAN_MEMBERS", "ADMINISTRATOR")){
         const userPerms = new Discord.MessageEmbed()
             .setColor(colours.red_light)
             .setTitle("You need `Ban Members` permission to execute this command")
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     }
     const bReason = args.slice(2).join(" ");
     const bUser = message.mentions.members.first() || message.guild.members.resolve(args[0]);
-    
+      
     if (!bUser) {
         const invalidUser = new Discord.MessageEmbed()
             .setColor(colours.red_light)
