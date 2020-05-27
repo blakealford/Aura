@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send("I don't have the `Ban Members` permission to ban a member.")
     }
     if (bUser.hasPermission("ADMINISTRATOR")) {
-        return message.channel.send(`You can't kick ${kUser.username} due to Admin permission.`)
+        return message.channel.send(`You can't ban ${bUser.username} due to Admin permission.`)
     }
     
     let args1 = message.content.slice(1).split(/ +/);
