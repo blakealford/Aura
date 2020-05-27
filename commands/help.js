@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
                 {name: 'Miscellaneous', value: '`-help Misc`', inline: true },
                 {name: 'Extra Support', value: 'Join Our Discord - discord.gg/kwC5QAx', inline: true },
             )  
-            .setColor(colours.bot_wite)
+            .setColor(colours.bot_white)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(help);
             console.log('error')
