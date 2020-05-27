@@ -1,0 +1,20 @@
+{        
+    "purple-dark": "#6a006a",
+    "purple-light": "#a958a5",
+    "orange": "#ffa500",
+    "gold": "#daa520",
+    "red_dark": "#8e2430",
+    "red_light": "#f94343",
+    "blue_dark": "#3b5998",
+    "cyan": "#5780cd",
+    "blue_light": "#ace9e7",
+    "aqua": "#33a1ee",
+    "pink": "#ff9dbb",
+    "green_dark": "#2ac075",
+    "green_light": "#a1ee33",
+    "white": "#f9f9f6",
+    "cream": "#ffdab9",
+    "bot_online": "0x00ff00",
+    "bot_white": "0xECECEC",
+    "bot_blue": "0x173f5f"
+}

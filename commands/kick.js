@@ -1,34 +1,52 @@
-const Discord = require('discord.js')
-const moment = require("moment")
+const Discord = require('discord.js');
+const moment = require("moment");
+const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS")) {
-        return message.channel.send("You need the `Kick Members` permission to execute this command.")
+        let invalidPermissions = new Discord.MessageEmbed()
+                    .setColor(colours.red_light)
+                    .setTitle("You need the `Kick Members` permission to execute this command.");
+                message.channel.send(invalidPermissions)
     }
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
     if (!kUser) {
-        return message.channel.send("Please mention a valid user.")
+        let validUserKick = new Discord.MessageEmbed()
+                    .setColor(colours.red_light)
+                    .setTitle("Please mention a valid member");
+                message.channel.send(validUserKick)
     }
     if (message.author.id === kUser.id) {
-        return message.channel.send("You cannot kick yourself.")
+        let authorKick = new Discord.MessageEmbed()
+                    .setColor(colours.red_light)
+                    .setTitle("You can not kick your self");
+                message.channel.send(authorKick)
     }
     if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
-        return message.channel.send("I don't have the permission to Kick Members.")
+        let invalidPermissionsBot = new Discord.MessageEmbed()
+        .setColor(colours.red_light)
+        .setTitle("I don't have the permission to Kick Members.");
+    message.channel.send(invalidPermissionsBot)
     }
     if (kUser.hasPermission("ADMINISTRATOR")) {
-        return message.channel.send(`You can't kick ${kUser.username} due to Admin permission.`)
+        let invalidPermissionsUser = new Discord.MessageEmbed()
+        .setColor(colours.red_light)
+        .setTitle(`You can't kick ${kUser.username} due to Admin permission.`);
+    message.channel.send(invalidPermissionsUser)
     }
 
     let args1 = message.content.slice(1).split(/ +/);
     let kReason = args1.slice(2).join(" ");
 
     if (!kReason) {
-        const embed = new Discord.MessageEmbed()
-        return message.channel.send("Please provide a reason.")
-    }
+        let noReasonProvided = new Discord.MessageEmbed()
+        .setColor(colours.red_light)
+        .setTitle(`You can't kick ${kUser.username} due to Admin permission.`);
+    message.channel.send(noReasonProvided)
+
     let kickEmbed = new Discord.MessageEmbed()
     .setAuthor(`Kick Moderation`, message.author.avatarURL({dynamic: true, format: 'png'}))
-    .setColor('0xFF0000')
+    .setColor(colours.green_light)
     .addField("**User**:", kUser.user.tag, true)
     .addField("**Responsible Moderator**:", message.author.username, true)
     .addField("**Command Executed In**:", message.channel, true)
@@ -38,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.member(kUser).kick(kReason);
     message.channel.send(kickEmbed);
 
-}
+}}
 
 
 module.exports.config = {

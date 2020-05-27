@@ -1,59 +1,60 @@
 const Discord = require('discord.js');
 const moment = require("moment")
+const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("BAN_MEMBERS"));{
         const userPerms = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle("You need `Ban Members` permission to execute this command")
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(userPerms)
+    message.channel.send(userPerms)
 
     const bReason = args.slice(2).join(" ");
     const bUser = message.mentions.members.first() || message.guild.members.resolve(args[0]);
     }
     if (!bUser) {
         const invalidUser = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle("Please mention a valid user.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(invlidUser)
+    message.channel.send(invlidUser)
     }
     if (message.author.id === bUser.id){
         const bYourSelf = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle("You cannot ban yourself.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(bYourSelf)
+    message.channel.send(bYourSelf)
     }
     if (!message.guild.me.hasPermission("BAN_MEMBERS")){
         const invalidPerms = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle("I don't have the `Ban Members` permission to ban a member.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(invalidPerms)
+    message.channel.send(invalidPerms)
     }
     if (bUser.hasPermission("ADMINISTRATOR")){
         const adminPerms = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle(`You can't ban ${bUser.username} due to Admin permission.`)
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(adminPerms)
+    message.channel.send(adminPerms)
     }
     if (!bReason){
         const Reason = new Discord.MessageEmbed()
-            .setColor(0xFF0000)
+            .setColor(colours.red_light)
             .setTitle("Please provide a reason.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
-    messsage.channel.send(Reason)
+    message.channel.send(Reason)
     }
     const banEmbed = new Discord.MessageEmbed()
         .setAuthor(`Ban Moderation`, message.author.displayAvatarURL({
             dynamic: true,
             format: 'png'
         }))
-        .setColor(0xFF0000)
+        .setColor(colours.green_light)
         .addField("**User**:", bUser.user.tag)
         .addField("**Responsible Moderator**:", message.author.username)
         .addField("**Command Executed In**:", message.channel)

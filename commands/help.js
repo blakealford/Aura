@@ -1,4 +1,5 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -10,9 +11,10 @@ module.exports.run = async (bot, message, args) => {
                 {name: 'Reaction Roles', value:  '`-help Reaction`', inline: true }, 
                 {name: 'Music', value: '`-help Music`', inline: true }, 
                 {name: 'Commands', value: '`-help Commands`', inline: true }, 
-                {name: 'Extra Support', value: 'Join Our Discord - discord.gg/kwC5QAx'}
+                {name: 'Miscellaneous', value: '`-help Misc`', inline: true },
+                {name: 'Extra Support', value: 'Join Our Discord - discord.gg/kwC5QAx', inline: true },
             )  
-            .setColor(0x173f5f)
+            .setColor(colours.bot_wite)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(help);
             console.log('error')

@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-
+const colours = require("./colours.json");
 const bot = new Discord.Client();
 
 var fs = require('fs');
 var path = require('path');
 
-var version = ('1.0.1');
+var version = ('1.0.2');
 
 var colourBlue = ("0x173f5f");
 
@@ -58,34 +58,31 @@ bot.on('message', message => {
         case 'varsp':
             const varsp = new Discord.MessageEmbed()
             .setTitle('He is a massive nerd and made the bot And You Should Follow Him On Twitter @DeveloperVarsp')
-            .setColor(0x173f5f);
+            .setColor(colours.bot_blue);
             message.channel.send(varsp);
     break; 
 6
         
       //Operational message = All services are online, thank you for using Aura!
      // Offilne message  = Services are offilne, please wait untill they are back up
+     //operational colour change = colours.green_light
+     //offline colour change = colours.red_light
 
         case 'status':
             const status = new Discord.MessageEmbed()
             .setTitle('Aura Status')
-            .addField('**Online**', ' All services are online, thank you for using Aura!')
-            .setColor(0x173f5f)
+            .addField('**Online**', ' All services are online running version', + version, ', thank you for using Aura!')
+            .setColor(colours.bot_online)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(status);
 
     break;
 
-    //Plugin Commands
-    
-    case 'moderation':
-        const moderation = new Discord.MessageEmbed()
-               .setTitle('Moderator Commands')
-               .setThumbnail('https://images-ext-2.discordapp.net/external/RyBiRwUtq8VqdDb6Sm77J303UEziO55Ujqu8FaRCfQ4/https/i.imgur.com/JsgxK3Y.png?width=160&height=160')
-               .addField('N/A', 'Soon To Come')
-               .setColor(0x173f5f)
-               .setFooter('Aura Discord Bot | Developed By Varsp');
-                message.channel.send(moderation);
+        case 'version':
+        let version = new Discord.MessageEmbed()
+        .setTitle('Aura Is Running Version ' + version,)
+        .setColor(colours.bot_white);
+        message.channel.send(version);
     }
 })
 
