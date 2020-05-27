@@ -33,7 +33,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("**Responsible Moderator**:", message.author.username, true)
     .addField("**Command Executed In**:", message.channel, true)
     .addField("**Date**:", moment.utc(message.createdAt).format('dddd, MMMM Do YYYY'), true)
-    .addField("**Reason**:", kReason);
+    .addField("**Reason**:", kReason)
+    .setFooter('Aura Discord Bot | Developed By Varsp');
     message.guild.member(kUser).kick(kReason);
     message.channel.send(kickEmbed);
 
