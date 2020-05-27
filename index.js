@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const colours = require("./colours.json");
+const colours = require("./commands/colours.json")
 const bot = new Discord.Client();
 
 var fs = require('fs');
