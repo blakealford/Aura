@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("**Date**:", moment.utc(message.createdAt).format('dddd, MMMM Do YYYY'))
         .addField("**Reason**:", bReason);
     
-            message.guild.member(bUser).ban(bReason); 
+            bUser.ban(bReason)
             message.channel.send(banEmbed);
     }
 
