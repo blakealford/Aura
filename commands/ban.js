@@ -4,7 +4,7 @@ const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermission("BAN_MEMBERS"));{
+    if (!message.member.hasPermission("BAN_MEMBERS", "ADMINISTRATOR"));{
         const userPerms = new Discord.MessageEmbed()
             .setColor(colours.red_light)
             .setTitle("You need `Ban Members` permission to execute this command")
