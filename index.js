@@ -77,12 +77,6 @@ bot.on('message', message => {
             message.channel.send(status);
 
     break;
-
-        case 'version':
-        let version = new Discord.MessageEmbed()
-        .setTitle('Aura Is Running Version ' + version,)
-        .setColor(colours.bot_white);
-        message.channel.send(version);
     
     }})
 
