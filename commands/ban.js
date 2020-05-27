@@ -61,7 +61,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("**Reason**:", bReason)
         .setFooter('Aura Discord Bot | Developed By Varsp');
 
-    bUser.ban(bReason);
+    message.guild.members.bUser.ban(bReason);
     message.channel.send(banEmbed);
 }
 module.exports.config = {
