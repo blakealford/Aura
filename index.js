@@ -61,7 +61,7 @@ bot.on('message', message => {
             .setColor(colours.bot_blue);
             message.channel.send(varsp);
     break; 
-6
+
         
       //Operational message = All services are online, thank you for using Aura!
      // Offilne message  = Services are offilne, please wait untill they are back up
@@ -83,7 +83,7 @@ bot.on('message', message => {
         .setTitle('Aura Is Running Version ' + version,)
         .setColor(colours.bot_white);
         message.channel.send(version);
-    }
-})
+    
+    }})
 
 bot.login(process.env.token);
