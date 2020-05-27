@@ -10,10 +10,10 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("You need `Ban Members` permission to execute this command")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(userPerms)
-
+    }
     const bReason = args.slice(2).join(" ");
     const bUser = message.mentions.members.first() || message.guild.members.resolve(args[0]);
-    }
+    
     if (!bUser) {
         const invalidUser = new Discord.MessageEmbed()
             .setColor(colours.red_light)

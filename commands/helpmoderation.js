@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const colours = require("./colours.json");
 
 module.exports.run = async (bot, message, args) => {
-
-        if(message.content === "-help moderation") {
+        if(args[0] == "moderation"){ 
             var helpModeration = new Discord.MessageEmbed()
             .setTitle('Aura Moderator Commands')
             .setThumbnail('https://images-ext-2.discordapp.net/external/RyBiRwUtq8VqdDb6Sm77J303UEziO55Ujqu8FaRCfQ4/https/i.imgur.com/JsgxK3Y.png?width=160&height=160')
@@ -11,10 +10,8 @@ module.exports.run = async (bot, message, args) => {
             .setColor(colours.bot_white)
             .setFooter('Aura Discord Bot | Developed By Varsp');
             message.channel.send(helpModeration);
-            console.error()
-       
-        
-        }}
+            console.error() }
+        }
 
 
 module.exports.config = {
