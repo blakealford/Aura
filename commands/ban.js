@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("You need `Ban Members` permission to execute this command")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(userPerms)
+    return
     }
     const bReason = args.slice(2).join(" ");
     const bUser = message.mentions.members.first() || message.guild.members.resolve(args[0]);
@@ -20,6 +21,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("Please mention a valid user.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(invlidUser)
+    return
     }
     if (message.author.id === bUser.id){
         const bYourSelf = new Discord.MessageEmbed()
@@ -27,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("You cannot ban yourself.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(bYourSelf)
+    return
     }
     if (!message.guild.me.hasPermission("BAN_MEMBERS")){
         const invalidPerms = new Discord.MessageEmbed()
@@ -34,6 +37,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("I don't have the `Ban Members` permission to ban a member.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(invalidPerms)
+    return
     }
     if (bUser.hasPermission("ADMINISTRATOR")){
         const adminPerms = new Discord.MessageEmbed()
@@ -41,6 +45,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle(`You can't ban ${bUser.username} due to Admin permission.`)
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(adminPerms)
+    return
     }
     if (!bReason){
         const Reason = new Discord.MessageEmbed()
@@ -48,6 +53,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle("Please provide a reason.")
             .setFooter('Aura Discord Bot | Developed By Varsp');
     message.channel.send(Reason)
+    return
     }
     const banEmbed = new Discord.MessageEmbed()
         .setAuthor(`Ban Moderation`, message.author.displayAvatarURL({
