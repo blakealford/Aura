@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
                 {name: 'Extra Support', value: 'Join Our Discord - discord.gg/kwC5QAx', inline: true },
             )  
             .setColor(colours.bot_white)
-            .setFooter('Aura Discord Bot | Developed By Varsp');
+            .setFooter('Aura Discord Bot | Developed By Void', 'https://media.discordapp.net/attachments/680529518464598140/716239917352747058/Aura-Logo-Transparent-No-Drop-Shadow.png?width=400&height=400');
             message.channel.send(help);
             console.log('error')
        

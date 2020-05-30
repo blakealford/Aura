@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("**Command Executed In**:", message.channel, true)
     .addField("**Date**:", moment.utc(message.createdAt).format('dddd, MMMM Do YYYY'), true)
     .addField("**Reason**:", kReason)
-    .setFooter('Aura Discord Bot | Developed By Varsp');
+    .setFooter('Aura Discord Bot | Developed By Void', 'https://media.discordapp.net/attachments/680529518464598140/716239917352747058/Aura-Logo-Transparent-No-Drop-Shadow.png?width=400&height=400');
     message.guild.member(kUser).kick(kReason);
     message.channel.send(kickEmbed);
 

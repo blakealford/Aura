@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
                             .addField("**Command Executed In**:", message.channel)
                             .addField("**Date**:", moment.utc(message.createdAt).format('dddd, MMMM Do YYYY'))
                             .addField("**Reason**:", reason)
-                            .setFooter('Aura Discord Bot | Developed By Varsp');
+                            .setFooter('Aura Discord Bot | Developed By Void', 'https://media.discordapp.net/attachments/680529518464598140/716239917352747058/Aura-Logo-Transparent-No-Drop-Shadow.png?width=400&height=400');
                         message.channel.send(unBannedMember)
                         } catch(e) {
                             console.log(e.message)

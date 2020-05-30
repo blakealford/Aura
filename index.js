@@ -73,7 +73,7 @@ bot.on('message', message => {
             .setTitle('Aura Status')
             .addField('**Online**', ' All services are online running version', + version, ', thank you for using Aura!')
             .setColor(colours.bot_online)
-            .setFooter('Aura Discord Bot | Developed By Varsp');
+            .setFooter('Aura Discord Bot | Developed By Void', 'https://media.discordapp.net/attachments/680529518464598140/716239917352747058/Aura-Logo-Transparent-No-Drop-Shadow.png?width=400&height=400');
             message.channel.send(status);
 
     break;
