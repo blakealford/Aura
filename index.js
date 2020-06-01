@@ -6,7 +6,7 @@ var fs = require('fs');
 var path = require('path');
 
 var version = ('1.0.2');
-
+bot.prefix = "./botconfig.json/prefix"
 var colourBlue = ("0x173f5f");
 
 //Files
@@ -21,7 +21,7 @@ fs.readdir('./commands/', (err, files) => {
 
     jsfiles.forEach((f, i) => {
         var cmds = require(`./commands/${f}`);
-        console.log*(`Command ${f} loading...`)
+        console.log*(`Command ${f} loading...`);
         bot.commands.set(cmds.config.command, cmds); 
     })
 
