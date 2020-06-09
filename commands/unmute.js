@@ -1,25 +1,46 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const colours = require("./colours.json");
 
-module.exports.run = async (bot, message, args)  => {
-    if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("MUTE_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
-        return messsage.channel.send("You dont have the correct permissions to preform this command, `Manage Messages or Mute Members`");
-    }
+module.exports.run = async (bot, message, args) => {
+  bot.mute = new Discord.Collection();
+  if (
+    !message.member.hasPermission("MANAGE_MESSAGES") ||
+    !message.member.hasPermission("MUTE_MEMBERS") ||
+    !message.member.hasPermission("ADMINISTRATOR")
+  ) {
+    return message.channel.send(
+      ":x: You don't have permissions to preform this command"
+    );
+  }
 
-    let user = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]); 
-    if (!user) return message.channel.send(":x: You need to mention a user");
+  let user =
+    message.guild.member(message.mentions.users.first()) ||
+    message.guild.members.cache.get(args[0]);
+  if (!user)
+    return message.channel.send(
+      ":x: You need to mention a user, example --> `-unmute [user] <reason>`."
+    );
 
-    let role = message.guild.roles.cache.find(r => r.name === "Muted");
-    if (!role) return message.channel.send(":x: Couldn't find the mute role");
+  let role = message.guild.roles.cache.find((r) => r.name === "Muted");
+  if (!role) return message.channel.send(":x: Couldn't find the `muted` role.");
 
-    if (user.roles.cache.find(r => r.name === "Muted")) return message.channel.send("The user is already muted")
+  if (!user.roles.cache.find((r) => r.name === "Muted"))
+    return message.channel.send(":x: The user isn't muted.");
 
-    await user.roles.remove(role.id).catch(err => message.channel.send(`Something went wrong, but dont fear its not your fault. Error ~~--~~ ${err}`))
-    await clearTimeout(client.mute.get(message.author.id));
-    await client.mute.delete(message.author.id);
-    await message.channel.send(`${user.user.tag} is now unmuted.`)
+  await user.roles
+    .remove(role.id)
+    .catch((err) =>
+      message.channel.send(
+        `Something went wrong but dont threat its not your fualt. Error ~~--~~ ${err}`
+      )
+    );
+  await clearTimeout(bot.mute.get(user.user.id));
+  await bot.mute.delete(user.user.id);
+  await message.channel.send(
+    `:white_check_mark: ${user.user.tag} has been unmuted.`
+  );
+};
 
-}
 module.exports.config = {
-command: "unmute"
-}
+  command: "unmute",
+};
