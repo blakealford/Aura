@@ -30,16 +30,16 @@ module.exports.run = async (bot, message, args) => {
     let avatar = user.avatarURL({size: 2048}); // Use 2048 for high quality avatar.
     
     const embed = new Discord.MessageEmbed()
+    .setTitle("")
     .setAuthor(user.tag, avatar)
     .setThumbnail(avatar)
     .setFooter('Aura Discord Bot | Developed By Void')
     .setColor(colours.bot_white)
-    .addField("User ID", user.id, true)
+    .addField("User ID", user.id)
     .addField("Nickname", nickname, true)
-    .addField("Account Created At", `${createdate} \nsince ${created} day(s) ago`, true)
-    .addField("Joined Server At", `${joindate} \nsince ${joined} day(s) ago`, true)
+    .addField("Account Created At", `${createdate} \n> since ${created} day(s) ago`)
+    .addField("Joined Server At", `${joindate} \n> since ${joined} day(s) ago`)
     .addField("Status", status, true)
-    .addField("Game", game(), true)
     
     message.channel.send(embed);
 }

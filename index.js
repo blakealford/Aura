@@ -31,9 +31,9 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on("ready", () => {
-  console.log("Aura Bot Is Now Online! Running Version " + version);
+  console.log(`Aura Bot Is Online Serving ${bot.guilds.cache.size} Servers --- Runing Version ` + version);
   bot.user.setStatus("dnd");
-  bot.user.setActivity(`${bot.guilds.cache.size} servers | -help`, {
+  bot.user.setActivity(`-help || aurabot.xyz `, {    //${bot.guilds.cache.size} servers | -help  (show servers)
     type: "WATCHING",
   });
 });
@@ -59,7 +59,7 @@ bot.on("message", (message) => {
     case "varsp":
       const varsp = new Discord.MessageEmbed()
         .setTitle(
-          "He is a massive nerd and made the bot And You Should Follow Him On Twitter @DeveloperVarsp"
+          "He is a massive nerd and made the bot And You Should Follow Him On Twitter @ItsVarsp"
         )
         .setColor(colours.bot_blue);
       message.channel.send(varsp);
@@ -91,3 +91,5 @@ bot.on("message", (message) => {
 });
 
 bot.login(process.env.token);
+
+//NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck Token 

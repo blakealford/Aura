@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const dateformat = require('dateformat')
 const colours = require("./colours.json");
 const bot = new Discord.Client();
-const api = require("imageapi.js");
+//const api = require("imageapi.js")
 var prefix = "-" 
 
 module.exports.run = async (bot, message, args) => {
