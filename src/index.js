@@ -30,6 +30,7 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
+
 bot.on("ready", () => {
   console.log(`Aura Bot Is Online Serving ${bot.guilds.cache.size} Servers --- Runing Version ` + version);
   bot.user.setStatus("dnd");
@@ -59,7 +60,7 @@ bot.on("message", (message) => {
     case "varsp":
       const varsp = new Discord.MessageEmbed()
         .setTitle(
-          "He is a massive nerd and made the bot And You Should Follow Him On Twitter @DeveloperVarsp"
+          "He is a massive nerd and made the bot And You Should Follow Him On Twitter [@ItsVarsp](https://twitter.com/ItsVarsp)"
         )
         .setColor(colours.bot_blue);
       message.channel.send(varsp);
