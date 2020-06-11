@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const moment = require("moment");
-const colours = require("./colours.json");
+const colours = require("../src/JSON/colours.json");
 let m = require('moment-duration-format'),
     os = require('os');
     cpuStat = require('cpu-stat');
