@@ -90,6 +90,6 @@ bot.on("message", (message) => {
   }
 });
 
-bot.login(process.env.token);
+bot.login("NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck");
 
 //NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck Token 
