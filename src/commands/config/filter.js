@@ -4,9 +4,10 @@ const colours = require("../src/JSON/colours.json");
 const bot = new Discord.Client();
 var prefix = "-" 
 
-module.exports.run = async (bot, message, args) => {
-  
-}
-module.exports.config = {
-    command: "filter"
-}
+module.exports = {
+    name: "filter",
+    category: "config",
+    description: "Filters out naughty words",
+    run: async (bot, message, args) => {
+    
+  }}

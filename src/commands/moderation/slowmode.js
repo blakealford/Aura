@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 const colours = require("../src/JSON/colours.json");
-
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+  name: "file name",
+  category: "folder name",
+  description: "Some description here",
+  run: async (bot, message, args) => {
   if (!args[0])
     return message.channel.send(
       ":x: You need to specify the time in seconds in which you wish this cahnnel's slow mode to be set to"
@@ -20,8 +23,4 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(
     `:white_check_mark: I have set the slowmode for this channel to **${args[0]}**`
   );
-};
-
-module.exports.config = {
-  command: "slowmode",
-};
+}}

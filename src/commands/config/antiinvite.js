@@ -1,10 +1,14 @@
-const Discord = require('discord.js');
 const dateformat = require('dateformat')
+var prefix = config.prefix;
+const Discord = require("discord.js");
 const colours = require("../src/JSON/colours.json");
+const { config } = require('../moderation/ban');
 const bot = new Discord.Client();
-var prefix = "-" 
-
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+  name: "anti invite",
+  category: "config",
+  description: "Stops discord server invites from being sent",
+  run: async (bot, message, args) => {
     let inviteLink = ["discord.gg", "discord.com/invite", "discordapp.com/invite"];
 
     if (inviteLink.some(word => message.content.toLowerCase().includes(word))) {
@@ -14,8 +18,7 @@ module.exports.run = async (bot, message, args) => {
     }
   
     // If the user doesn't doing any to the bot, return it.
-    if (!message.content.startsWith(prefix)) return;
-}
-module.exports.config = {
-    command: "antiinvite"
-}
+    if (!message.content.startsWith(prefix)) return; 
+
+
+}}

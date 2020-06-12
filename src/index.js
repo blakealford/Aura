@@ -1,17 +1,19 @@
 const Discord = require("discord.js");
-const colours = require("../src/JSON/colours.json");
+const colours = require("./JSON/colours.json");
 const bot = new Discord.Client();
-
+const config = require("./JSON/botconfig.json")
+const prefix = config.prefix;
+const token = config.token;
 var fs = require("fs");
 var path = require("path");
-
-var defualtPrefix = "-"
-
-var version = "1.0.2";
 var colourBlue = "0x173f5f";
-
 //Files
 bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+bot.catergories = fs.readdirSync("./commands/");
+["command"].forEach(handler=>{
+  require(`./handlers/${handler}`)(bot);
+});
 
 fs.readdir("./commands/", (err, files) => {
   if (err) conosle.error(err);
@@ -39,56 +41,33 @@ bot.on("ready", () => {
   });
 });
 
-bot.on("message", (message) => {
-  //variables
-  var sender = message.author;
-
-  var msg = message.content.toUpperCase();
-
-  var prefix = defualtPrefix
-
-  var cont = message.content.slice(prefix.length).split(" ");
-
-  var args = cont.slice(1);
-
-  if (!message.content.startsWith("-")) return;
-
-  var cmd = bot.commands.get(cont[0]);
-  if (cmd) cmd.run(bot, message, args);
-
-  switch (cont.toString()) {
-    case "varsp":
-      const varsp = new Discord.MessageEmbed()
-        .setTitle(
-          "He is a massive nerd and made the bot And You Should Follow Him On Twitter [@ItsVarsp](https://twitter.com/ItsVarsp)"
-        )
-        .setColor(colours.bot_blue);
-      message.channel.send(varsp);
-      break;
-
-    //Operational message = All services are online, thank you for using Aura!
-    // Offilne message  = Services are offilne, please wait untill they are back up
-    //operational colour change = colours.green_light
-    //offline colour change = colours.red_light
-
-    case "status":
-      const status = new Discord.MessageEmbed()
-        .setTitle("Aura Status")
-        .addField(
-          "**Online**",
-          " All services are online running version",
-          +version,
-          ", thank you for using Aura!"
-        )
-        .setColor(colours.bot_online)
-        .setFooter(
-          "Aura Discord Bot | Developed By Void",
-          "https://media.discordapp.net/attachments/680529518464598140/716239917352747058/Aura-Logo-Transparent-No-Drop-Shadow.png?width=400&height=400"
-        );
-      message.channel.send(status);
-
-      break;
-  }
+bot.on("message", async message => {
+  if(message.authot.bot) return;
+  if(!message.content.startsWith(prefix)) return;
+  if(!message.guild) return;
+  if(!mesasege.member) message.member = await message.guild.fetchMember(message);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+  if(cmd.length == 0 ) return;
+  const command = bot.commands.ger(cmd)
+  if(!command) command = bot.commands.get(bot.aliases.get(cmd));
+  if(command) command.run(bot,message,args)
 });
+bot.login(token);
 
-bot.login("NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck");
+/* Command handler
+
+const Discord = require("discord.js");
+const colours = require("../src/JSON/colours.json");
+const bot = new Discord.Client();
+module.exports = {
+  name: "file name",
+  category: "folder name",
+  description: "Some description here",
+  run: async (bot, message, args) => {
+ //code here  
+
+
+}}
+
+*/

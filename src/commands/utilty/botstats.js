@@ -5,30 +5,32 @@ let m = require('moment-duration-format'),
     os = require('os');
     cpuStat = require('cpu-stat');
     ms = require('ms')
-
-module.exports.run = async (bot, message, args) => {
-  cpuStat.usagePercent(function (error, percent, seconds) {
-    if (error) {
-      return console.error(error)
-    }
-    
-    const cores = os.cpus().length
-    const cpuModel = os.cpus()[0].model 
-    const guild = bot.guilds.cache.size.toLocaleString()
-    const user = bot.users.cache.size.toLocaleString() 
-    const channel = bot.channels.cache.size.toLocaleString() 
-    const usage = formatBytes(process.memoryUsage().heapUsed) 
-    const Node = process.version 
-    const CPU = percent.toFixed(2) 
-    
-    const botStatsMsg = new Discord.MessageEmbed() 
-    .addField('Bot Statistics:', `Server: ${guild} \nUser: ${user} \nChannel: ${channel} \nUsage: ${usage} \nNode: ${Node} \nCPU Usage: ${CPU}%`)  
-    .addField('Physical Statistics:', `CPU: ${cores} - ${cpuModel} \nUptime: **${parseDur(bot.uptime)}**`)
-    .setColor(colours.bot_white)
-    .setFooter("Aura Discord Bot | Developed By Void")
-    message.channel.send(botStatsMsg)
-  })
-}
+  module.exports = {
+  name: "botstats",
+  category: "utilty",
+  description: "Sends bots info",
+  run: async (bot, message, args) => {
+    cpuStat.usagePercent(function (error, percent, seconds) {
+      if (error) {
+        return console.error(error)
+      }
+      
+      const cores = os.cpus().length
+      const cpuModel = os.cpus()[0].model 
+      const guild = bot.guilds.cache.size.toLocaleString()
+      const user = bot.users.cache.size.toLocaleString() 
+      const channel = bot.channels.cache.size.toLocaleString() 
+      const usage = formatBytes(process.memoryUsage().heapUsed) 
+      const Node = process.version 
+      const CPU = percent.toFixed(2) 
+      
+      const botStatsMsg = new Discord.MessageEmbed() 
+      .addField('Bot Statistics:', `Server: ${guild} \nUser: ${user} \nChannel: ${channel} \nUsage: ${usage} \nNode: ${Node} \nCPU Usage: ${CPU}%`)  
+      .addField('Physical Statistics:', `CPU: ${cores} - ${cpuModel} \nUptime: **${parseDur(bot.uptime)}**`)
+      .setColor(colours.bot_white)
+      .setFooter("Aura Discord Bot | Developed By Void")
+      message.channel.send(botStatsMsg)
+});
 module.exports.config = {
   command: "botstats",
 }
@@ -62,4 +64,4 @@ function parseDur(ms) {
   }
   
   return `${seconds} second(s)`
-}
+}}}

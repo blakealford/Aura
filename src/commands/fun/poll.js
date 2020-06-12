@@ -3,8 +3,11 @@ const dateformat = require('dateformat')
 const colours = require("../src/JSON/colours.json");
 const bot = new Discord.Client();
 var prefix = "-" 
-
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+  name: "poll",
+  category: "fun",
+  description: "Starts a poll",
+  run: async (bot, message, args) => {
     if (!message.member.permissions.has("ADMINISTRATOR"))
     return message.channel.send(
       `:x: You don't have a permissions to preform this command.`
@@ -30,7 +33,4 @@ module.exports.run = async (bot, message, args) => {
   let msg = await bot.channels.cache.get(channel.id).send(Embed);
   await msg.react("👍");
   await msg.react("👎");
-},
-module.exports.config = {
-    command: "poll"
-}
+}}

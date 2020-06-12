@@ -3,8 +3,11 @@ const dateformat = require('dateformat')
 const colours = require("../src/JSON/colours.json");
 const bot = new Discord.Client();
 var prefix = "-" 
-
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+  name: "report",
+  category: "moderation",
+  description: "Reports a user",
+  run: async (bot, message, args) => {
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
     return message.channel.send(`No.`);
   let User = message.mentions.users.first() || null;
@@ -45,7 +48,4 @@ module.exports.run = async (bot, message, args) => {
       );
     Channel.send(Embed);
   }
-};
-module.exports.config = {
-    command: "report"
-}
+}}

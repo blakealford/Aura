@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 const colours = require("../src/JSON/colours.json");
 const moment = require("moment")
-
-module.exports.run = async (bot, message, args) => {
+module.exports = {
+  name: "userinfo",
+  category: "utilty",
+  description: "Sends unserinfo",
+  run: async (bot, message, args) => {
     let user = message.mentions.users.first() || message.author; // You can do it by mentioning the user, or not.
     
     if (user.presence.status === "dnd") user.presence.status = "Do Not Disturb";
@@ -42,8 +45,4 @@ module.exports.run = async (bot, message, args) => {
     .addField("Status", status, true)
     
     message.channel.send(embed);
-}
-
-module.exports.config = {
-  command: "userinfo",
-};
+}}

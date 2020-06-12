@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 const colours = require("../src/JSON/colours.json");
-
-module.exports.run = async (bot, message, args) => {
-  var features = new Discord.MessageEmbed()
+module.exports = {
+  name: "features",
+  category: "utilty",
+  description: "Breif overwiew of the bots commands",
+  run: async (bot, message, args) => {
+    var features = new Discord.MessageEmbed()
     .setTitle(':clipboard: HERE ARE SOME COMMANDS :clipboard:')
     .setDescription('My prefix is `-`, you can find more commands & information on Aura at our website --> [aurabot.xyz](https://aurabot.xyz)')
     .addField('Moderation', '```kick\nban\nslwomode\nlockdown\nmute\nunmute\nunban\nclear```', true)
@@ -13,9 +16,4 @@ module.exports.run = async (bot, message, args) => {
     .setColor(colours.bot_white)
     .setFooter('Aura Discord Bot | Developed By Void');
     message.channel.send(features);
-
-}
-
-module.exports.config = {
-  command: "features",
-};
+  }};
