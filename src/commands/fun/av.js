@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const dateformat = require('dateformat')
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 const bot = new Discord.Client();
 var prefix = "-" 
 module.exports = {
@@ -18,3 +18,17 @@ module.exports = {
         .setColor(colours.bot_white)
         message.channel.send(avEmbed)
   }}
+
+
+/*
+./ = same directory. ../ = up one folder. ../foldername/filename.x = example
+.
+├── a
+│   └── b
+│       └── c
+└── x
+    └── y
+        └── z
+            └ 1.js
+if you are in the folder c, to get to 1.js you would use "../../../x/y/z/1.js" 
+*/

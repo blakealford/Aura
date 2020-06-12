@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "bson": "^4.0.4",
     "cpu-stat": "^2.0.1",
     "date": "^1.0.2",

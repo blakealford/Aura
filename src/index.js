@@ -10,12 +10,12 @@ var colourBlue = "0x173f5f";
 //Files
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-bot.catergories = fs.readdirSync("./commands/");
+bot.catergories = fs.readdirSync(__dirname + "/commands/");
 ["command"].forEach(handler=>{
-  require(`./handlers/${handler}`)(bot);
+  require(`./handlers/${handler}`)(bot);npm
 });
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./src/commands/", (err, files) => {
   if (err) conosle.error(err);
 
   var jsfiles = files.filter((f) => f.split(".").pop() === "js");
@@ -31,7 +31,6 @@ fs.readdir("./commands/", (err, files) => {
     bot.commands.set(cmds.config.command, cmds);
   });
 });
-console.log(process.cwd())
 
 
 bot.on("ready", () => {
