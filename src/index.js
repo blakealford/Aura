@@ -31,6 +31,7 @@ fs.readdir("./commands/", (err, files) => {
     bot.commands.set(cmds.config.command, cmds);
   });
 });
+console.log(process.cwd())
 
 
 bot.on("ready", () => {
