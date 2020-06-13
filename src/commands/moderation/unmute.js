@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 module.exports = {
   name: "unmute",
   category: "moderation",

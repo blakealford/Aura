@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js');
 const dateformat = require('dateformat')
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 const bot = new Discord.Client();
 module.exports = {
     name: "serverinfo",
@@ -11,8 +11,8 @@ module.exports = {
         let icon = message.guild.iconURL({size: 2048}); 
     
         let region = {
-          "brazil": "Brazil",
-          "eu-central": "Central Europe",
+          "brazil": ":flag_br:  Brazil",
+          "eu-central": ":flag_eu:  Central Europe",
           "singapore": "Singapore",
           "london": "London",
           "russia": "Russia",
@@ -56,11 +56,13 @@ module.exports = {
         .setThumbnail(icon)
         .setFooter('Aura Discord Bot | Developed By Void')
         .setAuthor(message.guild.name, icon)
-        .setDescription(`**ID:** ${message.guild.id}`)
+        .addField("Owner", `${message.guild.owner.tag}`, true)
+        .addField("Date Created", `${created}`, true)
+        .addField(`Channels [${totalchan}]`, `<:VoidChannel:706209600134971494> ${text} Text <:VoidSpeak:721201705156477058> ${vc} Voice <:VoidInfo:706209600013205576> ${category} Categories`,)
         .addField("Region", location)
-        .addField("Date Created", `${created} \nsince **${h}** day(s)`)
-        .addField("Owner", `**${message.guild.owner.user.tag}** \n\`${message.guild.owner.user.id}\``)
-        .addField(`Members [${total}]`, `Online: ${online} \nIdle: ${idle} \nDND: ${dnd} \nOffline: ${offline} \nBots: ${robot}`)
-        .addField(`Channels [${totalchan}]`, `Text: ${text} \nVoice: ${vc} \nCategory: ${category}`)
+        .addField("Roles", message.guild.roles.cache.size)
+        .addField(`Members`, `<:AuraAdded:721117662486200453>  ${online} <:AuraFixed:721117662650040361> ${idle}<:AuraError:721117662867882054> ${dnd} <:AuraRemoved:721178281377923074> ${offline} \nTotal: ${total} \nBots: ${robot}`)
         message.channel.send(embed); 
   }}
+
+  //<:VoidSettings:706209600269058159> 

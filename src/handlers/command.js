@@ -7,6 +7,7 @@ module.exports = (bot) => {
           bot.commands.set(pull.name, pull);
           if (pull.aliases) {
             pull.aliases.map((p) => bot.aliases.set(p, pull));
+            
           }
         });
       });

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const moment = require("moment");
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 const bot = new Discord.Client();
 module.exports = {
   name: "kick",

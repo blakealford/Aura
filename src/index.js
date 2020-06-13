@@ -1,9 +1,16 @@
 const Discord = require("discord.js");
-const colours = require("./JSON/colours.json");
+const colours = require("./commands/JSON/colours.json");
 const bot = new Discord.Client();
-const config = require("./JSON/botconfig.json")
+const config = require("./commands/JSON/botconfig.json")
+const Endb = require('endb');
 const prefix = config.prefix;
 const token = config.token;
+bot.settings = new Endb({
+    uri: config.Mongo, 
+    collection: 'settings',
+});
+bot.prefix = '!'; // default/global prefix for all guilds
+var version = "1.3"
 var fs = require("fs");
 var path = require("path");
 var colourBlue = "0x173f5f";
@@ -12,7 +19,7 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.catergories = fs.readdirSync(__dirname + "/commands/");
 ["command"].forEach(handler=>{
-  require(`./handlers/${handler}`)(bot);npm
+  require(`./handlers/${handler}`)(bot);
 });
 
 fs.readdir("./src/commands/", (err, files) => {
@@ -20,7 +27,6 @@ fs.readdir("./src/commands/", (err, files) => {
 
   var jsfiles = files.filter((f) => f.split(".").pop() === "js");
   if (jsfiles.length <= 0) {
-    return console.log("No commands found...");
   } else {
     console.log(jsfiles.length + " commands found");
   }
@@ -36,20 +42,20 @@ fs.readdir("./src/commands/", (err, files) => {
 bot.on("ready", () => {
   console.log(`Aura Bot Is Online Serving ${bot.guilds.cache.size} Servers --- Runing Version ` + version);
   bot.user.setStatus("dnd");
-  bot.user.setActivity(`-help || aurabot.xyz `, {    //${bot.guilds.cache.size} servers | -help  (show servers)
+  bot.user.setActivity(`a!help || aurabot.xyz `, {    //${bot.guilds.cache.size} servers | -help  (show servers)
     type: "WATCHING",
   });
 });
 
 bot.on("message", async message => {
-  if(message.authot.bot) return;
+  if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
   if(!message.guild) return;
-  if(!mesasege.member) message.member = await message.guild.fetchMember(message);
+  if(!message.member) message.member = await message.guild.fetchMember(message);
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
   if(cmd.length == 0 ) return;
-  const command = bot.commands.ger(cmd)
+  let command = bot.commands.get(cmd)
   if(!command) command = bot.commands.get(bot.aliases.get(cmd));
   if(command) command.run(bot,message,args)
 });
@@ -70,4 +76,4 @@ module.exports = {
 
 }}
 
-*/
+*/ 

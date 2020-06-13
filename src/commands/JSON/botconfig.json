@@ -1,5 +1,6 @@
 {
-    "prefix":"-",
-    "version":"1.0.2",
-    "token":"NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck"
+    "prefix":"a!",
+    "version":"1.3",
+    "token":"NzE0Mjg2Nzc3Mzg4NDk5MDU0.XuB3dQ.VGaIlGwlhhZ557r4_aElE9xUDck",
+    "Mongo": "mongodb+srv://Varsp:112233@Wse@cluster0-1bb5j.mongodb.net/Data?retryWrites=true&w=majority"
 }

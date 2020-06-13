@@ -1,18 +1,18 @@
 const Discord = require("discord.js");
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 module.exports = {
   name: "features",
   category: "utilty",
   description: "Breif overwiew of the bots commands",
   run: async (bot, message, args) => {
     var features = new Discord.MessageEmbed()
-    .setTitle(':clipboard: HERE ARE SOME COMMANDS :clipboard:')
-    .setDescription('My prefix is `-`, you can find more commands & information on Aura at our website --> [aurabot.xyz](https://aurabot.xyz)')
-    .addField('Moderation', '```kick\nban\nslwomode\nlockdown\nmute\nunmute\nunban\nclear```', true)
-    .addField('Utilty', '```status\nhelp\nnick\nbotstats\nuserinfo\nserverinfo\nping\nembed```', true)
-    .addField('Fun', '```google\nspotify\nav\npoll\nmeme\ngiveaway\n8ball\nreddit```', true)
-    .addField('Important Information', '```Aura bot is still under development and we would love some feedback on the bot. To give feedback join our discord server by doing "-auradiscord" and head over to suggestions. Thank you for using aura\n - Aura Development```')
-    .addField('Donate and get some nice perks', '[Click here to see information on donating](https://aurabot.xyz/docs-page.html#section-3), or do `-donate` to get more info.')
+    .setTitle('<:AuraCheck:721117662951768244> **HERE ARE THE AURA FEATURES** <:AuraCheck:721117662951768244> ')
+    .setDescription('The Aura Prefix Is Currently `a!`. You Can Find More Commands And Information About Aura On Our **[Website](https://aurabot.xyz/)**')
+    .addField('Moderation', '```Kick\nBan\nSlowmode\nLockdown\nMute\nUnmute\nUnban\nClear```', true)
+    .addField('Utilty', '```Status\nHelp\nNick\nBotstats\nUserinfo\nServerinfo\nPing\nEmbed```', true)
+    .addField('Fun', '```Google\nSpotify\nAv\nPoll\nMeme\nGiveaway\n8ball\nReddit```', true)
+    .addField('Important Information', '```Aura Is Still Under Development, This Means We Would LOVE Feedback On Our Bot. To Give Feedback Join Our Discord Server By Using -aura And Head Over To The Suggestions Channel! Thank YOU For Using Aura!```')
+    .addField('Looking To Support Us','Interested On Helping The Aura Development Project? [**Click Here**](https://aurabot.xyz/docs-page.html#section-3) or Trigger The Donation Command Using `-donate` For More Information')
     .setColor(colours.bot_white)
     .setFooter('Aura Discord Bot | Developed By Void');
     message.channel.send(features);

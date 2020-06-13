@@ -1,8 +1,8 @@
 const dateformat = require('dateformat')
-var prefix = config.prefix;
+const config = require("../JSON/botconfig.json")
+var prefix = config.prefix
 const Discord = require("discord.js");
-const colours = require("../src/JSON/colours.json");
-const { config } = require('./ban');
+const colours = require("../JSON/colours.json");
 const bot = new Discord.Client();
 module.exports = {
   name: "anti invite",

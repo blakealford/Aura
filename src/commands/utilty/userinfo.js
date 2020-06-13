@@ -1,22 +1,22 @@
 const Discord = require("discord.js");
-const colours = require("../src/JSON/colours.json");
+const colours = require("../JSON/colours.json");
 const moment = require("moment")
 module.exports = {
   name: "userinfo",
   category: "utilty",
   description: "Sends unserinfo",
   run: async (bot, message, args) => {
-    let user = message.mentions.users.first() || message.author; // You can do it by mentioning the user, or not.
+    let user = message.mentions.users.first() || message.author; 
     
-    if (user.presence.status === "dnd") user.presence.status = "Do Not Disturb";
-    if (user.presence.status === "idle") user.presence.status = "Idle";
-    if (user.presence.status === "offline") user.presence.status = "Offline";
-    if (user.presence.status === "online") user.presence.status = "Online";
+    if (user.presence.status === "dnd") user.presence.status = "<:AuraError:721117662867882054> | Do Not Disturb  ";
+    if (user.presence.status === "idle") user.presence.status = "<:AuraFixed:721117662650040361> | Idle ";
+    if (user.presence.status === "offline") user.presence.status = "<:AuraRemoved:721178281377923074> | Offline ";
+    if (user.presence.status === "online") user.presence.status = "<:AuraAdded:721117662486200453> | Online ";
     
     function game() {
       let game;
       if (user.presence.activities.length >= 1) game = `${user.presence.activities[0].type} ${user.presence.activities[0].name}`;
-      else if (user.presence.activities.length < 1) game = "None"; // This will check if the user doesn't playing anything.
+      else if (user.presence.activities.length < 1) game = "None"; // checks if the user doesn't playing anything.
       return game; // Return the result.
     }
     
@@ -27,22 +27,22 @@ module.exports = {
     
     const member = message.guild.member(user);
     let nickname = member.nickname !== undefined && member.nickname !== null ? member.nickname : "None"; // Nickname
-    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss"); // User Created Date
-    let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss"); // User Joined the Server Date
+    let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY,"); // User Created Date
+    let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY,"); // User Joined the Server Date
     let status = user.presence.status; // DND, IDLE, OFFLINE, ONLINE
-    let avatar = user.avatarURL({size: 2048}); // Use 2048 for high quality avatar.
+    let avatar = user.avatarURL({size: 2048}); 
     
     const embed = new Discord.MessageEmbed()
     .setTitle("")
     .setAuthor(user.tag, avatar)
     .setThumbnail(avatar)
-    .setFooter('Aura Discord Bot | Developed By Void')
+    .setFooter('User ID: '+ user.id)
     .setColor(colours.bot_white)
-    .addField("User ID", user.id)
-    .addField("Nickname", nickname, true)
-    .addField("Account Created At", `${createdate} \n> since ${created} day(s) ago`)
-    .addField("Joined Server At", `${joindate} \n> since ${joined} day(s) ago`)
-    .addField("Status", status, true)
+    .addField("Joined", `${joindate}`, true)
+    .addField("Registered", `${createdate}`, true)
+    .addField("Roles", `<@&${member._roles.join('> <@&')}>`)
+    .addField("Nickname", nickname)
+    .addField("Current Status", status)
     
     message.channel.send(embed);
 }}
