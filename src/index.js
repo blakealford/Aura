@@ -5,11 +5,6 @@ const config = require("./commands/JSON/botconfig.json")
 const Endb = require('endb');
 const prefix = config.prefix;
 const token = config.token;
-bot.settings = new Endb({
-    uri: config.Mongo, 
-    collection: 'settings',
-});
-bot.prefix = '!'; // default/global prefix for all guilds
 var version = "1.3"
 var fs = require("fs");
 var path = require("path");
