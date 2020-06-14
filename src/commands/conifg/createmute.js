@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const colours = require("../JSON/colours.json");
-const config = require("../JSON/botconfig.json/")
+const config = require("../JSON/botconfig.json")
 let prefix = config.prefix
 module.exports = {
     name: "createmute",
     category: "config",
-    description: "Creates a mi",
+    description: "Creates a muted role",
     run: async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_GUILD", "MANAGE_ROLES_OR_PERMISSIONS") || !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("<:AuraDown:721175040376438824> | You don't have a permissions to preform this command.");
-     if (args[0].toLowerCase() == "create") {
+     if (args[0] == "create") {
          let rNmae = message.content.spli(`${preifx}mute create `).join("");
              let rColor;
       args.forEach((arg) => {
@@ -44,7 +44,7 @@ module.exports = {
       const Embed = new MessageEmbed()
         .setTitle(`New role!`)
         .setDescription(
-          `"${rName}" was creaed, this will be used as your muted role.\nPlease change the permissions on this role to the following `Send Messages` to off.`
+          `"${rName}" was creaed, this will be used as your muted role.\nPlease change the permissions on this role to the following **Send Messages** to off.`
         )
         .setColor(rColor);
       message.channel.send(Embed);

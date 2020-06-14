@@ -47,7 +47,7 @@ module.exports = {
           "https://www.freepnglogos.com/uploads/spotify-logo-png/image-gallery-spotify-logo-21.png"
         )
         .setColor(0x1ed76b)
-        .setFooter("Aura Discord Bot | Developed By Void")
+        .setFooter("Aura | The Moderation Bot For You")
         .setThumbnail(image)
         .addField("Name:", name, true)
         .addField("Album:", album, true)

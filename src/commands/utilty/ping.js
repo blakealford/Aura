@@ -15,7 +15,7 @@ module.exports = {
             msg.createdTimestamp - message.createdTimestamp
           )}ms\nAPI Latency is ${Math.round(bot.ws.ping)}ms`
         )
-        .setColor("0xd36868")
+        .setColor(colours.bot_white)
       msg.edit(_);
       msg.edit("\u200B");
     });
