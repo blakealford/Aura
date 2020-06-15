@@ -33,7 +33,7 @@ let m = require('moment-duration-format'),
       .addField('Users', `${user} `, true)
       .addField('Website', 'https://aurbaot.xyz/', true)
       .addField('Memory Usage', ` ${usage}`, true)
-      .addField('Publisher', "Void Servicing", true)
+      .addField('Publisher', "Aura Development", true)
       .addField('Lead Developer', "Varsp#0001", true)
       .addField('CPU', `${CPU}%`, true)
       .addField('Uptime',`${parseDur(bot.uptime)}`)

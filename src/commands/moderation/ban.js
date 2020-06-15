@@ -33,7 +33,7 @@ module.exports = {
     let memberBanned = new Discord.MessageEmbed()
     .setTitle("Ban Command")
     .setAuthor(user.tag, Avatar)
-    .setFooter("Aura | The Moderation Bot For You")
+    .setFooter("©AuraDevelopmet 2020 All Rights Reserved")
     .setDescription(`<:AuraUpvote:721174999456809023> | Successfully banned **${user.tag}**`)
     .setColor(colours.bot_white)
     .addFields(

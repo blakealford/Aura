@@ -54,7 +54,7 @@ module.exports = {
         .setColor(colours.bot_white)
         .setTimestamp(new Date())
         .setThumbnail(icon)
-        .setFooter('Aura Discord Bot | Developed By Void')
+        .setFooter('©AuraDevelopmet 2020 All Rights Reserved')
         .setAuthor(message.guild.name, icon)
         .addField("Owner", `${message.guild.owner.tag}`, true)
         .addField("Date Created", `${created}`, true)

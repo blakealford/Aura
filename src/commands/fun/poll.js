@@ -33,7 +33,7 @@ module.exports = {
   const Embed = new Discord.MessageEmbed()
     .setTitle(`New Poll By: ${message.author.username}`)
     .setDescription(`${question}`)
-    .setFooter('Aura | The Moderation Bot For You')
+    .setFooter('©AuraDevelopmet 2020 All Rights Reserved')
     .setColor(colours.bot_white);
   let msg = await bot.channels.cache.get(channel.id).send(Embed);
   await msg.react("👍");
