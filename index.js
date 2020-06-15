@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const colours = require("./commands/JSON/colours.json");
 const bot = new Discord.Client();
 const config = require("./commands/JSON/botconfig.json")
 const Endb = require('endb');
@@ -17,8 +16,8 @@ bot.catergories = fs.readdirSync(__dirname + "/commands/");
   require(`./handlers/${handler}`)(bot);
 });
 
-fs.readdir("./src/commands/", (err, files) => {
-  if (err) conosle.error(err);
+fs.readdir("./commands/", (err, files) => {
+  if (err) console.error(err);
 
   var jsfiles = files.filter((f) => f.split(".").pop() === "js");
   if (jsfiles.length <= 0) {
@@ -54,7 +53,8 @@ bot.on("message", async message => {
   if(!command) command = bot.commands.get(bot.aliases.get(cmd));
   if(command) command.run(bot,message,args)
 });
-bot.login(process.env.token);
+bot.login(token);
+//bot.login(process.env.token);
 
 /* Command handler
 

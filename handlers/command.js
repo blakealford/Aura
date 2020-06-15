@@ -1,7 +1,7 @@
 const {readdirSync} = require('fs');
 module.exports = (bot) => {
-      readdirSync("./src/commands/").map((dir) => {
-        const commands = readdirSync(`./src/commands/${dir}/`).map((cmd) => {
+      readdirSync("./commands/").map((dir) => {
+        const commands = readdirSync(`./commands/${dir}/`).map((cmd) => {
           let pull = require(`../commands/${dir}/${cmd}`);
           console.log(`Loaded command ${pull.name}`);
           bot.commands.set(pull.name, pull);
