@@ -33,14 +33,6 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 
-bot.on("ready", () => {
-  console.log(`Aura Bot Is Online Serving ${bot.guilds.cache.size} Servers --- Runing Version ` + version);
-  bot.user.setStatus("dnd");
-  bot.user.setActivity(`a!help || aurabot.xyz `, {    //${bot.guilds.cache.size} servers | -help  (show servers)
-    type: "WATCHING",
-  });
-});
-
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;

@@ -39,7 +39,7 @@ module.exports = {
       )
       .setColor(colours.red_light)
       .setThumbnail(Avatar)
-      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully reported **${user.tag}**`)
+      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully reported **${User.tag}**`)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },
         { name: "Reported User", value: `${User.tag}`, inline: false },
