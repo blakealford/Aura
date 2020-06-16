@@ -34,7 +34,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on('ready', () =>{
     console.log('Aura bot is online on over 80 servers runing version ' + version);
-    client.user.setActivity("Watching a!help || aurabot.xyz"),  { type: 'WATCHING' }
+    bot.user.setActivity("Watching a!help || aurabot.xyz"),  { type: 'WATCHING' }
 
 bot.on("message", async message => {
   if(message.author.bot) return;
