@@ -8,7 +8,7 @@ module.exports = {
     category: "utilty",
     description: "Sends server info",
     run: async (bot, message, args) => {
-        let icon = message.guild.iconURL({size: 2048}); 
+        let icon = message.guild.iconURL({size: 2048}, true ); 
     
         let region = {
           "brazil": ":flag_br:  Brazil",
@@ -60,7 +60,7 @@ module.exports = {
         .addField("Date Created", `${created}`, true)
         .addField(`Channels [${totalchan}]`, `<:VoidChannel:706209600134971494> ${text} Text <:VoidSpeak:721201705156477058> ${vc} Voice <:VoidInfo:706209600013205576> ${category} Categories`,)
         .addField("Region", location)
-        .addField("Roles", message.guild.roles.cache.size)
+        .addField(`Roles [${ message.guild.roles.cache.size}]`, message.guild.roles.cache.size)
         .addField("Boosts","<:AuraBoost:721690552617271337> " + message.guild.premiumSubscriptionCount + " Boosts")
         .addField(`Members`, `<:AuraAdded:721117662486200453>  ${online} <:AuraFixed:721117662650040361> ${idle}<:AuraError:721117662867882054> ${dnd} <:AuraRemoved:721178281377923074> ${offline} \nTotal: ${total} \nBots: ${robot}`)
         message.channel.send(embed); 

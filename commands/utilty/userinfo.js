@@ -30,7 +30,7 @@ module.exports = {
     let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY,"); // User Created Date
     let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY,"); // User Joined the Server Date
     let status = user.presence.status; // DND, IDLE, OFFLINE, ONLINE
-    let avatar = user.avatarURL({size: 2048}); 
+    let avatar = user.avatarURL({size: 2048}, true); 
     
     const embed = new Discord.MessageEmbed()
     .setTitle("")
@@ -40,7 +40,7 @@ module.exports = {
     .setColor(colours.bot_white)
     .addField("Joined", `${joindate}`, true)
     .addField("Registered", `${createdate}`, true)
-    .addField("Roles", `<@&${member._roles.join('> <@&')}>`)
+    .addField(`Roles`, `<@&${member._roles.join('> <@&')}>`)
     .addField("Nickname", nickname)
     .addField("Current Status", status)
     

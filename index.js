@@ -4,10 +4,27 @@ const config = require("./commands/JSON/botconfig.json")
 const Endb = require('endb');
 const prefix = config.prefix;
 const token = config.token;
+const colours = require('./commands/JSON/colours.json')
 var version = "1.3"
 var fs = require("fs");
 var path = require("path");
 var colourBlue = "0x173f5f";
+
+bot.on('ready', () => {
+console.log(`Ready to serve in ${bot.channels.cache.size} channels on ${bot.guilds.cache.size} servers, for a total of ${bot.users.cache.size} users.`);
+bot.user.setActivity(`a!help || Over ${bot.users.cache.size} Using Aura`, {type: 'LISTENING'}).catch(console.error);
+})
+const { GiveawaysManager } = require('discord-giveaways');
+bot.giveawaysManager = new GiveawaysManager(bot, {
+    storage: "./giveaways.json",
+    updateCountdownEvery: 5000,
+    default: {
+        botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        embedColor: colours.bot_white,
+        reaction: "🎉"
+    }
+});
 //Files
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
