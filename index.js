@@ -49,7 +49,6 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
-
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(!message.content.startsWith(prefix)) return;
