@@ -13,17 +13,17 @@ module.exports = {
         let region = {
           "brazil": ":flag_br:  Brazil",
           "eu-central": ":flag_eu:  Central Europe",
-          "singapore": "Singapore",
-          "london": "London",
-          "russia": "Russia",
-          "japan": "Japan",
-          "hongkong": "Hongkong",
-          "sydney": "Sydney",
-          "us-central": "U.S. Central",
-          "us-east": "U.S. East",
-          "us-south": "U.S. South",
-          "us-west": "U.S. West",
-          "eu-west": "Western Europe"
+          "singapore": ":flag_sg: Singapore",
+          "london": ":england: London",
+          "russia": ":flag_ru: Russia",
+          "japan": ":flag_jp: Japan",
+          "hongkong": ":flag_jp: Hongkong",
+          "sydney": ":flag_au: Sydney",
+          "us-central": ":flag_us: U.S. Central",
+          "us-east": ":flag_us: U.S. East",
+          "us-south": ":flag_us: U.S. South",
+          "us-west": ":flag_us: U.S. West",
+          "eu-west": ":england: Western Europe"
         }
         
         // Members

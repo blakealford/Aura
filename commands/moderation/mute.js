@@ -11,26 +11,26 @@ module.exports = {
   run: async (bot, message, args) => {
     let User = message.mentions.users.first();   
     let invaildPerms = new Discord.MessageEmbed()
-    .setDescription("<:AuraDown:721175040376438824> | You don't have a permissions to preform this command.")
+    .setDescription("<:AuraCross:722776417368014858> | You don't have a permissions to preform this command.")
     .setColor(colours.bot_white)
     let client = message.guild.members.cache.get(bot.user.id).roles.highest;
     if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("MUTE_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
           return message.channel.send(invaildPerms);
         }
         let muteAura = new Discord.MessageEmbed()
-        .setDescription("<:AuraDown:721175040376438824> | You cant mute me.")
+        .setDescription("<:AuraCross:722776417368014858> | You cant mute me.")
         .setColor(colours.bot_white)
         let muteYourslef = new Discord.MessageEmbed()
         .setDescription("<:AuraDown:721175040376438824> | You cant mute yourself.")
         .setColor(colours.bot_white)
         let pleaseMention = new Discord.MessageEmbed()
-        .setDescription("<:AuraDown:721175040376438824> | Please mention a user ```usage | a!mute [user].```")
+        .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!mute [user].```")
         .setColor(colours.bot_white)
         let cantFindMuted = new Discord.MessageEmbed()
-        .setDescription("<:AuraDown:721175040376438824> | Couldn't find the `Muted` role.")
+        .setDescription("<:AuraCross:722776417368014858> | Couldn't find the `Muted` role.")
         .setColor(colours.bot_white)
         let roleHigher = new Discord.MessageEmbed()
-        .setDescription("<:AuraDown:721175040376438824> | That role is higher then me.")
+        .setDescription("<:AuraCross:722776417368014858> | That role is higher then me.")
         .setColor(colours.bot_white)
         let user = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
         if (!user) return message.channel.send(pleaseMention);
@@ -50,7 +50,7 @@ module.exports = {
       )
       .setColor(colours.bot_white)
       .setThumbnail(Avatar)
-      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully muted **${User.tag}**`)
+      .setDescription(`<:AuraTick:722776339270205471> | Successfully muted **${User.tag}**`)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },
         { name: "Muted User", value: `${User.tag}`, inline: false },
@@ -73,7 +73,7 @@ module.exports = {
       )
       .setColor(colours.bot_white)
       .setThumbnail(Avatar)
-      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully unmuted **${User.tag}**`)
+      .setDescription(`<:AuraTick:722776339270205471> | Successfully unmuted **${User.tag}**`)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },
         { name: "Unmuted User", value: `${User.tag}`, inline: false },
@@ -101,7 +101,7 @@ module.exports = {
         `User \`${User.tag}\` Was Muted. `
       )
       .setColor(colours.red_light)
-      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully muted **${user.tag}**`)
+      .setDescription(`<:AuraTick:722776339270205471> | Successfully muted **${user.tag}**`)
       .setThumbnail(Avatar)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },

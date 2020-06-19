@@ -80,3 +80,6 @@ module.exports = {
 }}
 
 */ 
+
+
+//Tick/Correct: <:AuraTick:722776339270205471>  Cross/Error: <:AuraCross:722776417368014858>  Warning: <:AuraWarning:722777439352258640> 

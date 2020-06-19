@@ -9,11 +9,11 @@ module.exports = {
   run: async (bot, message, args) => {
     message.channel.send(`🏓 Pinging....`).then((msg) => {
       const _ = new Discord.MessageEmbed()
-        .setTitle("Pong!")
+        .setTitle("🏓 Pong!")
         .setDescription(
-          `🏓 Pong!\nLatency is ${Math.floor(
+          `:hourglass:  Latency is ${Math.floor(
             msg.createdTimestamp - message.createdTimestamp
-          )}ms\nAPI Latency is ${Math.round(bot.ws.ping)}ms`
+          )}ms\n:electric_plug:  API Latency is ${Math.round(bot.ws.ping)}ms`
         )
         .setColor(colours.bot_white)
       msg.edit(_);

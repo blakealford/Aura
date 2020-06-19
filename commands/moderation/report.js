@@ -10,21 +10,21 @@ module.exports = {
   run: async (bot, message, args) => {
   let User = message.mentions.users.first() || null;
   let pleaseMention = new Discord.MessageEmbed()
-  .setDescription("<:AuraDown:721175040376438824> | Please mention a user ```usage | a!report [user] <reason>```")
+  .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!report [user] <reason>```")
   .setColor(colours.bot_white)
   if (User == null) {
     return message.channel.send(pleaseMention);
   } else {
     let Reason = message.content.slice(prefix.length + 22 + 7) || null;
     let reasonReport = new Discord.MessageEmbed()
-    .setDescription("<:AuraDown:721175040376438824> | You need to specify a reason for the report")
+    .setDescription("<:AuraCross:722776417368014858> | You need to specify a reason for the report")
     .setColor(colours.bot_white)
     if (Reason == null) {
       return message.channel.send(reasonReport);
     }
     let Avatar = User.displayAvatarURL();
     let reportChannelNotFound = new Discord.MessageEmbed()
-    .setDescription("<:AuraDown:721175040376438824> | There is no channel in this server with the name please create a channel called `reports`.")
+    .setDescription("<:AuraCross:722776417368014858> | There is no channel in this server with the name please create a channel called `reports`.")
     .setColor(colours.bot_white)
     let Channel = message.guild.channels.cache.find(
       (ch) => ch.name === "reports"
@@ -39,7 +39,7 @@ module.exports = {
       )
       .setColor(colours.red_light)
       .setThumbnail(Avatar)
-      .setDescription(`<:AuraUpvote:721174999456809023> | Successfully reported **${User.tag}**`)
+      .setDescription(`<:AuraTick:722776339270205471>| Successfully reported **${User.tag}**`)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },
         { name: "Reported User", value: `${User.tag}`, inline: false },
