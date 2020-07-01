@@ -12,7 +12,8 @@ var colourBlue = "0x173f5f";
 
 bot.on('ready', () => {
 console.log(`Ready to serve in ${bot.channels.cache.size} channels on ${bot.guilds.cache.size} servers, for a total of ${bot.users.cache.size} users.`);
-bot.user.setActivity(`a!help || Over ${bot.users.cache.size} Using Aura`, {type: 'LISTENING'}).catch(console.error);
+bot.user.setActivity(`The Return Of Aura`, {type: 'WATCHING'}).catch(console.error);
+//bot.user.setActivity(`a!help || Over ${bot.users.cache.size} Using Aura`, {type: 'LISTENING'}).catch(console.error);
 })
 const { GiveawaysManager } = require('discord-giveaways');
 bot.giveawaysManager = new GiveawaysManager(bot, {
