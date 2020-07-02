@@ -8,7 +8,7 @@ const colours = require('./commands/JSON/colours.json')
 var version = "1.3"
 var fs = require("fs");
 var path = require("path");
-var colourBlue = "0x173f5f";
+var colourBlue = "0x6DE0B9";
 
 bot.on('ready', () => {
 console.log(`Ready to serve in ${bot.channels.cache.size} channels on ${bot.guilds.cache.size} servers, for a total of ${bot.users.cache.size} users.`);

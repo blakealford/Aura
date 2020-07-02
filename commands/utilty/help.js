@@ -6,38 +6,29 @@ module.exports = {
     category: "utilty",
     description: "Sends the help command",
     run: async (bot, message, args) => {
-        const help = new Discord.MessageEmbed()
-        .setTitle("Aura Commands")
-        .setDescription("Find out how you can use Aura in your discord server today, \n report any errors to our [**support server**](https://discord.gg/nv2dGXy)\n[**Invite Aura**](https://discord.com/oauth2/authorize?client_id=714286777388499054&scope=bot&permissions=8) to your server to be apart of the beta")
-        .setThumbnail("https://media.discordapp.net/attachments/680529518464598140/721143149719847054/AuraLogo.png?width=410&height=410")
-        .addField(":gear: Prefix", "Auras prefix in this server is `a!`")
-        .addField(":shield: Moderation", "Find all of the commands related to **Moderation** | `a!help moderation`", true)
-        .addField(":hammer: Utility", "Find all of the commands related to **Utility** | `Pg 2`", true)
-        .addField(":performing_arts: Fun", "Find all of the commands related to **Fun** | `Pg 3`", true)
-        .addField(":musical_note: Music", "Find all of the commands related to **Music** | `Pg 4`", true)
-        .addField(":tickets: Ticket System", "Find all commands related to **Ticket System** | `Pg 5`", true)
-        .addField(":clipboard: Info", "Find all of the commands related to **Info** | `Pg 6`", true)
+      const msg = new Discord.MessageEmbed()
+        .setAuthor('Aura Help', 'https://media.discordapp.net/attachments/716540407982325770/728081390175911996/Aura-Free.png?width=360&height=360')
+        .setDescription('You would have recieved a message from me that will contain all of the commands that Aura has. \n\n To see a full list of the commands + a detailed explanation of each command check out our [website](https://aurabot.xyz) ')
         .setColor(colours.bot_white)
-        let msg = await message.channel.send(help)  
-        await msg.react("▶")
+        message.channel.send(msg)
 
-        let reactionFilter = (reaction, user) => (user.id === message.author.id) && !user.bot;
-        let reaction = (await msg.awaitReactions(reactionFilter, {
-          max: 1
-        })).first();
-
-        if (reaction.emoji.name === "▶"){
-          msg.delete();
-          const helpModeration = new Discord.MessageEmbed()
-          .setTitle("Aura Moderation Plugin")
-          .addField(":shield: Moderation", "")
-          .setColor("0x2E3138")
-          .setFooter("Page 2 | Moderation Commands")
-          let msg = await message.channel.send(helpModeration)
-
-        }
-     
+        const help = new Discord.MessageEmbed()
+        .setAuthor('Aura Help', 'https://media.discordapp.net/attachments/716540407982325770/728081390175911996/Aura-Free.png?width=360&height=360')
+        .setDescription("● Aura is still in `Beta` and may have a lot of bugs, if you come along one report to `Zylo#0001` \n")
+        .setThumbnail("https://media.discordapp.net/attachments/654453772218662913/728094034005983232/icons8-about-240.png?width=192&height=192")
+        .addField("<:Arrow:728090644744241244> Server Prefix - `(2)`", "My prefix's in this server are | `a!`, <@714286777388499054>")
+        .addField("<:Arrow:728090644744241244> Moderation - `(10)`", "***Coming Soon***")
+        .addField("<:Arrow:728090644744241244> Utility - `(8)`", "***Coming Soon***")
+        .addField("<:Arrow:728090644744241244> General", "***Coming Soon***")
+        .addField("<:Arrow:728090644744241244> Fun - `(6)`", "***Coming Soon***")
+        .addField("<:Arrow:728090644744241244> Music - `(8)`", "***Under Development***")
+        .addField("Info", "[Invite](https://discord.com/oauth2/authorize?client_id=714286777388499054&scope=bot&permissions=2079845878) Aura for your self ● Join Our Support [Server](https://discord.gg/) ")
+        .setColor(colours.bot_white)
+        message.author.send(help)
 }}
+
+
+//<:Arrow:728090644744241244> 
 
 
 

@@ -10,6 +10,7 @@ let m = require('moment-duration-format'),
   category: "utilty",
   description: "Sends bots info",
   run: async (bot, message, args) => {
+    let user = message.mentions.users.first() || message.author;
     cpuStat.usagePercent(function (error, percent, seconds) {
       if (error) {
         return console.error(error)
@@ -26,17 +27,16 @@ let m = require('moment-duration-format'),
       
       const botStatsMsg = new Discord.MessageEmbed() 
       .setTitle("Bot Information")
-      .setThumbnail('https://media.discordapp.net/attachments/680529518464598140/721143149719847054/AuraLogo.png?width=410&height=410')
-      .addField('Username', `Aura#5968`, true)
-      .addField('Library', `Node.js Version ${Node}`, true)
-      .addField('Servers', `${guild}`, true)  
-      .addField('Users', `${user} `, true)
-      .addField('Website', 'https://aurabot.xyz/', true)
-      .addField('Memory Usage', ` ${usage}`, true)
-      .addField('Publisher', "[Aura Development](https://auradevelopment.xyz)", true)
-      .addField('Lead Developer', "Varsp#0001", true)
-      .addField('CPU', `${CPU}%`, true)
-      .addField('Uptime',`${parseDur(bot.uptime)}`)
+      .setThumbnail('https://media.discordapp.net/attachments/716540407982325770/728081390175911996/Aura-Free.png?width=360&height=360')
+      .setDescription('You currently have the `Free` Version of Aura.\nIf you would like to implement Aura or Aura Premium into your own server, you can do so [here](https://aurabot.xyz)!\n\n Want to get the most out of Aura? Join our Premium program [here](https://google.com)')
+      .addField('<:Server:728110918453559349> Total Guilds', `${guild}`, true)
+      .addField('<:Scale:728113829837537320> Total Users',  `${user}`, true)  
+      .addField('<:CPU:728113829761777755> CPU Usage', `${CPU}%`, true)
+      .addField('<:RAM:728113829921423480> Memory Usage', `${usage}`, true)
+      .addField('<:Update:728113829883543632> Node JS Version', `${Node}`, true)
+      .addField('<:Website:728113830005309500> Website', 'https://aurabot.xyz/', true)
+      .addField('<:Developer:728113829707513916> Lead Developer', `Zylo#0001`, true)
+      .addField('<:Up:728113829875154964> Uptime',`${parseDur(bot.uptime)}`)
       .setColor(colours.bot_white)
       message.channel.send(botStatsMsg)
 });
