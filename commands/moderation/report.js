@@ -30,9 +30,11 @@ module.exports = {
       (ch) => ch.name === "reports"
     );
     if (!Channel)
-    
-      return message.channel.send(reportChannelNotFound);
-    let Embed = new Discord.MessageEmbed()
+    return message.channel.send(reportChannelNotFound);
+      
+      let userReported = new Discord.MessageEmbed()
+      .setTitle(`${User.tag} Was Succefuly Reported`)
+      let Embed = new Discord.MessageEmbed()
       .setTitle(`User Report`)
       .setDescription(
         `User \`${User.tag}\` Was Reported. `
@@ -50,6 +52,6 @@ module.exports = {
           inline: false,
         }
       );
-    Channel.send(Embed);
+    Channel.send(Embed).then message.channel.send(userReported)
   }
 }}
