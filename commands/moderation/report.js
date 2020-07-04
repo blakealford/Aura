@@ -52,6 +52,7 @@ module.exports = {
           inline: false,
         }
       );
-    Channel.send(Embed).then message.channel.send(userReported)
+    Channel.send(Embed)
+    message.channel.send(userReported)
   }
 }}
