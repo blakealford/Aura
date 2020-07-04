@@ -29,9 +29,11 @@
     "mongodb": "^3.5.9",
     "ms": "^2.1.2",
     "num-parse": "^1.0.1",
+    "opusscript": "0.0.7",
     "os": "^0.1.1",
     "parse-ms": "^2.1.0",
     "path": "^0.12.7",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^2.1.7"
   }
 }
