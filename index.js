@@ -5,7 +5,6 @@ const prefix = config.prefix;
 const token = config.token;
 const colours = require('./commands/JSON/colours.json')
 var version = "1.3"
-var fs = require("fs");
 var path = require("path");
 var colourBlue = "0x6DE0B9";
 client.mongoose = require("./Utils/mongoose");
@@ -77,5 +76,5 @@ client.on('messageDelete', message => {
           channel.send(embed);
 }}});
 
-// client.mongoose.init();
+client.mongoose.init();
 client.login(token);
