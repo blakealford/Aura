@@ -19,7 +19,7 @@ let npUrl ="";
 
 client.on('ready', () => {
 console.log(`Ready to serve in ${client.channels.cache.size} channels on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users.`);
-client.user.setActivity(`a!help || Over ${client.users.cache.size} Using Aura`, {type: 'LISTENING'}).catch(console.error);
+client.user.setActivity(`a!help`, {type: 'LISTENING'}).catch(console.error);
 
 });
 
