@@ -1,12 +1,12 @@
 const {readdirSync} = require('fs');
-module.exports = (bot) => {
+module.exports = (client) => {
       readdirSync("./commands/").map((dir) => {
         const commands = readdirSync(`./commands/${dir}/`).map((cmd) => {
           let pull = require(`../commands/${dir}/${cmd}`);
           console.log(`Loaded command ${pull.name}`);
-          bot.commands.set(pull.name, pull);
+          client.commands.set(pull.name, pull);
           if (pull.aliases) {
-            pull.aliases.map((p) => bot.aliases.set(p, pull));
+            pull.aliases.map((p) => client.aliases.set(p, pull));
             
           }
         });

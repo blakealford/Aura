@@ -6,10 +6,10 @@ let m = require('moment-duration-format'),
     cpuStat = require('cpu-stat');
     ms = require('ms')
   module.exports = {
-  name: "botinfo",
+  name: "clientinfo",
   category: "utilty",
-  description: "Sends bots info",
-  run: async (bot, message, args) => {
+  description: "Sends clients info",
+  run: async (client, message, args) => {
     let user = message.mentions.users.first() || message.author;
     cpuStat.usagePercent(function (error, percent, seconds) {
       if (error) {
@@ -18,30 +18,30 @@ let m = require('moment-duration-format'),
       
       const cores = os.cpus().length
       const cpuModel = os.cpus()[0].model 
-      const guild = bot.guilds.cache.size.toLocaleString()
-      const user = bot.users.cache.size.toLocaleString() 
-      const channel = bot.channels.cache.size.toLocaleString() 
+      const guild = client.guilds.cache.size.toLocaleString()
+      const user = client.users.cache.size.toLocaleString() 
+      const channel = client.channels.cache.size.toLocaleString() 
       const usage = formatBytes(process.memoryUsage().heapUsed) 
       const Node = process.version 
       const CPU = percent.toFixed(2) 
       
-      const botStatsMsg = new Discord.MessageEmbed() 
-      .setTitle("Bot Information")
+      const clientStatsMsg = new Discord.MessageEmbed() 
+      .setTitle("client Information")
       .setThumbnail('https://media.discordapp.net/attachments/716540407982325770/728081390175911996/Aura-Free.png?width=360&height=360')
-      .setDescription('You currently have the `Free` Version of Aura.\nIf you would like to implement Aura or Aura Premium into your own server, you can do so [here](https://aurabot.xyz)!\n\n Want to get the most out of Aura? Join our Premium program [here](https://google.com)')
-      .addField('<:Server:728110918453559349> Total Guilds', `${guild}`, true)
-      .addField('<:Scale:728113829837537320> Total Users',  `${user}`, true)  
-      .addField('<:CPU:728113829761777755> CPU Usage', `${CPU}%`, true)
-      .addField('<:RAM:728113829921423480> Memory Usage', `${usage}`, true)
-      .addField('<:Update:728113829883543632> Node JS Version', `${Node}`, true)
-      .addField('<:Website:728113830005309500> Website', 'https://aurabot.xyz/', true)
-      .addField('<:Developer:728113829707513916> Lead Developer', `Zylo#0001`, true)
-      .addField('<:Up:728113829875154964> Uptime',`${parseDur(bot.uptime)}`)
-      .setColor(colours.bot_white)
-      message.channel.send(botStatsMsg)
+      .setDescription('You currently have the `Free` Version of Aura.\nIf you would like to implement Aura or Aura Premium into your own server, you can do so [here](https://auraclient.xyz)!\n\n Want to get the most out of Aura? Join our Premium program [here](https://google.com)')
+      .addField('<:Server:728110918453559349> Total Guilds', `\`${guild}\``, true)
+      .addField('<:Scale:728113829837537320> Total Users',  `\`${user}\``, true)  
+      .addField('<:CPU:728113829761777755> CPU Usage', `\`${CPU}%\``, true)
+      .addField('<:RAM:728113829921423480> Memory Usage', `\`${usage}\``, true)
+      .addField('<:Update:728113829883543632> Node JS Version', `\`${Node}\``, true)
+      .addField('<:Website:728113830005309500> Website', 'https://auraclient.xyz/', true)
+      .addField('<:Developer:728113829707513916> Lead Developer', `\`Zylo#0001\``, true)
+      .addField('<:Up:728113829875154964> Uptime',`\`${parseDur(client.uptime)}\``)
+      .setColor(colours.client_white)
+      message.channel.send(clientStatsMsg)
 });
 module.exports.config = {
-  command: "botstats",
+  command: "clientstats",
 }
 function formatBytes (a, b) {
   if (0 == a) return "0 Bytes";

@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const ms = require('ms');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const num = require("num-parse");
 module.exports = {
   name: "gstart",
   category: "giveaway",
   description: "Starts a giveaway",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.some(r => r.name.toLowerCase() === "giveaway")) return message.channel.send("❌ | You don't have `MANAGE_GUILD` permission or `Giveaway` role to create giveaways!");
-    if (this.bot.GiveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 3) return message.channel.send("❌ | Max giveaway limit `3` reached! Please try again later.");
+    if (this.client.GiveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 3) return message.channel.send("❌ | Max giveaway limit `3` reached! Please try again later.");
     let time = args[0];
     if (!time) return message.channel.send("❌ | Please provide valid time. Eg: `1h`, `1d` etc.");
     if (ms(time) > ms("10d")) {
@@ -21,7 +21,7 @@ module.exports = {
     let prize = args.slice(2).join(" ");
     if (!prize) return message.channel.send("❌ | Please provide the prize for giveaway. Eg: `g?create 1d 2w Discord Nitro`");
 
-    this.bot.GiveawaysManager.start(message.channel, {
+    this.client.GiveawaysManager.start(message.channel, {
         time: ms(time),
         winnerCount: winners,
         prize: prize,

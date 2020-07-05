@@ -27,12 +27,15 @@
     "moment": "^2.26.0",
     "moment-duration-format": "^2.3.2",
     "mongodb": "^3.5.9",
+    "mongoose": "^5.9.21",
     "ms": "^2.1.2",
     "num-parse": "^1.0.1",
     "opusscript": "0.0.7",
     "os": "^0.1.1",
     "parse-ms": "^2.1.0",
     "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
     "weather-js": "^2.0.0",
     "ytdl-core": "^2.1.7"
   }

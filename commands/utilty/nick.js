@@ -4,7 +4,7 @@ module.exports = {
     name: "nick",
     category: "utilty",
     description: "Changes nickname of a user",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         if (!message.member.hasPermission(["MANAGE_NIKCNAMES", "ADMINISTRATOR"])) {
             return message.channel.send(":x: You can't use this command")
         } 

@@ -5,7 +5,7 @@ module.exports = {
     name: "8ball",
     category: "fun",
     description: "8ball command",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         if (!args[2]){
             return message.channel.send("Where is the question?")
         }

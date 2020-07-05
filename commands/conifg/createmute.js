@@ -6,7 +6,7 @@ module.exports = {
     name: "createmute",
     category: "config",
     description: "Creates a muted role",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_GUILD", "MANAGE_ROLES_OR_PERMISSIONS") || !message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("<:AuraDown:721175040376438824> | You don't have a permissions to preform this command.");
      if (args[0] == "create") {
          let rNmae = message.content.spli(`${preifx}mute create `).join("");

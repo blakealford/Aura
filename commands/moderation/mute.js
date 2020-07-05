@@ -1,41 +1,41 @@
 const Discord = require('discord.js');
 const colours = require("../JSON/colours.json");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const ms = require('ms');
 
-bot.mute = new Map();
+client.mute = new Map();
 module.exports = {
   name: "mute",
   category: "moderation",
   description: "Mutes a member",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let User = message.mentions.users.first();   
     let invaildPerms = new Discord.MessageEmbed()
     .setDescription("<:AuraCross:722776417368014858> | You don't have a permissions to preform this command.")
-    .setColor(colours.bot_white)
-    let client = message.guild.members.cache.get(bot.user.id).roles.highest;
+    .setColor(colours.client_white)
+    let bot = message.guild.members.cache.get(client.user.id).roles.highest;
     if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.hasPermission("MUTE_MEMBERS") || !message.member.hasPermission("ADMINISTRATOR")) {
           return message.channel.send(invaildPerms);
         }
         let muteAura = new Discord.MessageEmbed()
         .setDescription("<:AuraCross:722776417368014858> | You cant mute me.")
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         let muteYourslef = new Discord.MessageEmbed()
         .setDescription("<:AuraDown:721175040376438824> | You cant mute yourself.")
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         let pleaseMention = new Discord.MessageEmbed()
         .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!mute [user].```")
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         let cantFindMuted = new Discord.MessageEmbed()
         .setDescription("<:AuraCross:722776417368014858> | Couldn't find the `Muted` role.")
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         let roleHigher = new Discord.MessageEmbed()
         .setDescription("<:AuraCross:722776417368014858> | That role is higher then me.")
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         let user = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
         if (!user) return message.channel.send(pleaseMention);
         // Optional:
-        if (user.id === bot.user.id) return message.channel.send(muteAura);
+        if (user.id === client.user.id) return message.channel.send(muteAura);
         if (user.id === message.author.id) return message.channel.send(muteYourslef);
         let role = message.guild.roles.cache.find(r => r.name === "Muted");
         if (!role) return message.channel.send(cantFindMuted);
@@ -48,7 +48,7 @@ module.exports = {
       .setDescription(
         `User \`${User.tag}\` Was Muted. `
       )
-      .setColor(colours.bot_white)
+      .setColor(colours.client_white)
       .setThumbnail(Avatar)
       .setDescription(`<:AuraTick:722776339270205471> | Successfully muted **${User.tag}**`)
       .addFields(
@@ -62,16 +62,16 @@ module.exports = {
       );
       let stillMuted = new Discord.MessageEmbed()
       .setDescription("<:AuraDown:721175040376438824> | That user is still muted.")
-      .setColor(colours.bot_white)
+      .setColor(colours.client_white)
       let alreadyMuted = new Discord.MessageEmbed()
       .setDescription("<:AuraDown:721175040376438824> | That user is already muted.")
-      .setColor(colours.bot_white)
+      .setColor(colours.client_white)
       let Embed3 = new Discord.MessageEmbed()
       .setTitle(`User UnMuted`)
       .setDescription(
         `User \`${User.tag}\` Was UnMuted. `
       )
-      .setColor(colours.bot_white)
+      .setColor(colours.client_white)
       .setThumbnail(Avatar)
       .setDescription(`<:AuraTick:722776339270205471> | Successfully unmuted **${User.tag}**`)
       .addFields(
@@ -113,7 +113,7 @@ module.exports = {
           inline: false,
         }
       );
-          bot.mute.set(user.user.id, timer);
+          client.mute.set(user.user.id, timer);
           message.channel.send(Embed2)
         }
 }}

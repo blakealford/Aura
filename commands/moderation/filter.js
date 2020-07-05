@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const dateformat = require('dateformat')
 const colours = require("../JSON/colours.json");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 var prefix = "-" 
 
 module.exports = {
     name: "filter",
     category: "config",
     description: "Filters out naughty words",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
     
   }}

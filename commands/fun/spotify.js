@@ -4,7 +4,7 @@ module.exports = {
   name: "spotify",
   category: "fun",
   description: "Sends spotify track info",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let user = message.mentions.users.first() || message.author;
 
     let convert = require("parse-ms");
@@ -47,7 +47,7 @@ module.exports = {
           "https://www.freepnglogos.com/uploads/spotify-logo-png/image-gallery-spotify-logo-21.png"
         )
         .setColor(0x1ed76b)
-        .setFooter("Aura | The Moderation Bot For You")
+        .setFooter("Aura | The Moderation client For You")
         .setThumbnail(image)
         .addField("Name:", name, true)
         .addField("Album:", album, true)

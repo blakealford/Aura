@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const dateformat = require('dateformat')
 const colours = require("../JSON/colours.json");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 var prefix = "-" 
 module.exports = {
     name: "av",
     category: "fun",
     description: "Sends users avatar",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         let user = message.mentions.users.first() || message.author;
         let avatar = user.avatarURL({size: 2048});
         
@@ -15,7 +15,7 @@ module.exports = {
         .setAuthor(user.tag, avatar)
         .setTitle("Avatar")
         .setImage(avatar)
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         message.channel.send(avEmbed)
   }}
 

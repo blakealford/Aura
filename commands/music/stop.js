@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const colours = require("../JSON/colours.json");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 let musicConn;
 let musicChannel;
 let musicDispatcher;
@@ -11,7 +11,7 @@ let npUrl ="";
   name: "stop",
   category: "music",
   description: "Stop a song",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     musicConn.disconnect();
     musicConn = null;
     queue = [];            

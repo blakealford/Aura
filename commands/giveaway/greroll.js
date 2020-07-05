@@ -1,12 +1,12 @@
     const Discord = require('discord.js');
     const ms = require('ms');
     const colours = require("../JSON/colours.json");
-    const bot = new Discord.Client();
+    const client = new Discord.Client();
     module.exports = {
       name: "greroll",
       category: "giveaway",
       description: "Re roles the giveaway command",
-      run: async (bot, message, args) => {
+      run: async (client, message, args) => {
         if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.some(r => r.name.toLowerCase() === "giveaway")) return message.channel.send("❌ | You don't have `MANAGE_GUILD` permission or `Giveaway` role to manage giveaways!");
         let id = args[0];
         if (!id) return message.channel.send("❌ | Please provide a giveaway id.");

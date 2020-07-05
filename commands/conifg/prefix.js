@@ -1,12 +1,12 @@
 // const Discord = require("discord.js");
 // const db = require("../../db");
 // const colours = require("../JSON/colours.json");
-// const bot = new Discord.Client();
+// const client = new Discord.Client();
 // module.exports = {
 //   name: "preifx",
 //   category: "config",
 //   description: "Change guilds prefix",
-//   run: async (bot, message, args) => {
+//   run: async (client, message, args) => {
 
 // }}
 

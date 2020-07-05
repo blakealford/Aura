@@ -1,16 +1,16 @@
 const Discord = require('discord.js');
 const ms = require('ms');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const num = require("num-parse");
 module.exports = {
   name: "gedit",
   category: "giveaway",
   description: "Edit a giveaway",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.some(r => r.name.toLowerCase() === "giveaway")) return message.channel.send("❌ | You don't have `MANAGE_GUILD` permission or `Giveaway` role to create giveaways!");
     let id = args[0];
     if (!id) return message.channel.send("❌ | Please provide a giveaway id!");
-    let hasGiveaway = this.bot.GiveawaysManager.giveaways.find((g) => g.messageID === id);
+    let hasGiveaway = this.client.GiveawaysManager.giveaways.find((g) => g.messageID === id);
     if (!hasGiveaway) {
         return message.channel('Unable to find a giveaway with id `' + id + '`');
     }
@@ -26,7 +26,7 @@ module.exports = {
     let prize = args.slice(3).join(" ");
     if (!prize) return message.channel.send("❌ | Please provide the prize for giveaway. Eg: `g?edit <giveaway_id> 1d 2w Discord Nitro`.");
 
-    this.bot.GiveawaysManager.edit(hasGiveaway.messageID, {
+    this.client.GiveawaysManager.edit(hasGiveaway.messageID, {
         addTime: ms(time),
         newWinnerCount: parseInt(winners),
         newPrize: prize,

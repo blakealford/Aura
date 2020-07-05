@@ -2,13 +2,13 @@
 const Discord = require('discord.js');
 const dateformat = require('dateformat')
 const colours = require("../JSON/colours.json");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 module.exports = {
     name: "serverinfo",
     category: "utilty",
     description: "Sends server info",
-    run: async (bot, message, args) => {
-        let icon = message.guild.iconURL({size: 2048}, true ); 
+    run: async (client, message, args) => {
+        let icon = message.guild.iconURL({ dynamic: true, size: 512 }, true ); 
     
         let region = {
           "brazil": ":flag_br:  Brazil",
@@ -32,7 +32,7 @@ module.exports = {
             online = member.cache.filter(m => m.user.presence.status === "online").size,
             idle = member.cache.filter(m => m.user.presence.status === "idle").size,
             dnd = member.cache.filter(m => m.user.presence.status === "dnd").size,
-            robot = member.cache.filter(m => m.user.bot).size,
+            roclient = member.cache.filter(m => m.user.client).size,
             total = message.guild.memberCount;
         
         // Channels
@@ -51,7 +51,7 @@ module.exports = {
         let created = dateformat(message.guild.createdAt); 
         
         const embed = new Discord.MessageEmbed()
-        .setColor(colours.bot_white)
+        .setColor(colours.client_white)
         .setTimestamp(new Date())
         .setThumbnail(icon)
         .setFooter(`${message.guild.id}`)
@@ -62,7 +62,7 @@ module.exports = {
         .addField("Region", location)
         .addField(`Roles [${ message.guild.roles.cache.size}]`, message.guild.roles.cache.size)
         .addField("Boosts","<:AuraBoost:721690552617271337> " + message.guild.premiumSubscriptionCount + " Boosts")
-        .addField(`Members`, `<:AuraAdded:721117662486200453>  ${online} <:AuraFixed:721117662650040361> ${idle}<:AuraError:721117662867882054> ${dnd} <:AuraRemoved:721178281377923074> ${offline} \nTotal: ${total} \nBots: ${robot}`)
+        .addField(`Members`, `<:AuraAdded:721117662486200453>  ${online} <:AuraFixed:721117662650040361> ${idle}<:AuraError:721117662867882054> ${dnd} <:AuraRemoved:721178281377923074> ${offline} \nTotal: ${total} \nclients: ${roclient}`)
         message.channel.send(embed); 
   }}
 

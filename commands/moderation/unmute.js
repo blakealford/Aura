@@ -4,12 +4,12 @@ module.exports = {
   name: "unmute",
   category: "moderation",
   description: "Unmutes a muted member",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let User = message.mentions.users.first();   
     let invaildPerms = new Discord.MessageEmbed()
     .setDescription("<:AuraCross:722776417368014858> | You don't have a permissions to preform this command.")
-    .setColor(colours.bot_white)
-    bot.mute = new Discord.Collection();
+    .setColor(colours.client_white)
+    client.mute = new Discord.Collection();
     if (
       !message.member.hasPermission("MANAGE_MESSAGES") ||
       !message.member.hasPermission("MUTE_MEMBERS") ||
@@ -19,13 +19,13 @@ module.exports = {
     }
     let pleaseMention = new Discord.MessageEmbed()
     .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!unmute [user] <reason>```")
-    .setColor(colours.bot_white)
+    .setColor(colours.client_white)
     let cantFindMuted = new Discord.MessageEmbed()
     .setDescription("<:AuraCross:722776417368014858> | Couldn't find the `Muted` role.")
-    .setColor(colours.bot_white)
+    .setColor(colours.client_white)
     let instMuted = new Discord.MessageEmbed()
     .setDescription("<:AuraCross:722776417368014858> | That user ins't muted.")
-    .setColor(colours.bot_white)
+    .setColor(colours.client_white)
 
     let user =
       message.guild.member(message.mentions.users.first()) ||
@@ -52,7 +52,7 @@ module.exports = {
       .setDescription(
         `User \`${User.tag}\` Was UnMuted. `
       )
-      .setColor(colours.bot_white)
+      .setColor(colours.client_white)
       .setThumbnail(Avatar)
       .setDescription(`<:AuraTick:722776339270205471> | Successfully unmuted **${User.tag}**`)
       .addFields(
@@ -63,7 +63,7 @@ module.exports = {
           value: `${new Intl.DateTimeFormat("en-US").format(Date.now())}`,
           inline: false,
         })
-    await clearTimeout(bot.mute.get(user.user.id));
-    await bot.mute.delete(user.user.id);
+    await clearTimeout(client.mute.get(user.user.id));
+    await client.mute.delete(user.user.id);
     await message.channel.send(Embed1);
 }}

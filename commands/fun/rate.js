@@ -5,7 +5,7 @@ module.exports = {
     name: "rate",
     category: "fun",
     description: "Rate command",
-    run: async (bot, message, args) => {
+    run: async (client, message, args) => {
         let number = Math.floor(Math.random() * 101);
         if (!args[1]) {
             return message.channel.send('I would rate you a ' + number + '/100')

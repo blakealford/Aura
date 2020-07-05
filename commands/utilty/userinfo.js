@@ -5,7 +5,7 @@ module.exports = {
   name: "userinfo",
   category: "utilty",
   description: "Sends unserinfo",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     let user = message.mentions.users.first() || message.author; 
     
     if (user.presence.status === "dnd") user.presence.status = "<:AuraError:721117662867882054> | Do Not Disturb  ";
@@ -30,14 +30,14 @@ module.exports = {
     let createdate = moment.utc(user.createdAt).format("dddd, MMMM Do YYYY,"); // User Created Date
     let joindate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY,"); // User Joined the Server Date
     let status = user.presence.status; // DND, IDLE, OFFLINE, ONLINE
-    let avatar = user.avatarURL({size: 2048}, true); 
+    let avatar = user.avatarURL({ dynamic: true, size: 512 }, true); 
     
     const embed = new Discord.MessageEmbed()
     .setTitle("")
     .setAuthor(user.tag, avatar)
     .setThumbnail(avatar)
     .setFooter('User ID: '+ user.id)
-    .setColor(colours.bot_white)
+    .setColor(colours.client_white)
     .addField("Joined", `${joindate}`, true)
     .addField("Registered", `${createdate}`, true)
     .addField(`Roles`, `<@&${member._roles.join('> <@&')}>`)
