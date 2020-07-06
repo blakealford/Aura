@@ -1,38 +1,25 @@
-// const Discord = require("discord.js");
-// const request = require("request");
-// const usedCommand = new Set();
-// const config = require("../JSON/botconfig.json");
-// module.exports = {
-//   name: "docs",
-//   category: "Development",
-//   description: "Seach the discord.js docs",
-//   run: async (client, message, args) => {
-//     if (!args[1]) {
-//       let epicgamerembed = new Discord.MessageEmbed()
-//         .setTitle("Not Enough Args")
-//         .setDescription(`Please be more descriptive. \`a!docs <query>\``)
-//         .setColor("RED");
-//       message.channel.send(epicgamerembed);
-//     } else {
-//       let queryString = args[0];
-//       let docs = `https://djsdocs.sorta.moe/v2/embed?src=master&q=${queryString}`;
-//       let response = await request(docs);
-//       var jsonembed = JSON.parse(response);
-//       message.channel.send({ embed: jsonembed });
+const { MessageEmbed } = require("discord.js");
+const fetch = require("node-fetch");
+module.exports = {
+  name: "docs",
+  category: "Development",
+  description: "Seach the discord.js docs",
+  run: async (client, message, args) => {
 
-//       function error(res, name, message) {
-//         const json = { status: res.statusCode, error: name };
-//         if (message) json.message = message;
-//         res.json(json);
-//       }
-//       function notFound(res, message) {
-//         res.status(404);
-//         return error(res, "Not Found", message);
-//       }
-//       function badRequest(res, message) {
-//         res.status(400);
-//         return error(res, "Bad Request", message);
-//       }
-//     }
-//   },
-// };
+    const [query, src] = args;
+    if(!query) return message.channel.send("https://discord.js.org");
+    
+    const embed = await (await fetch(`https://djsdocs.sorta.moe/v2/embed?src=${src|| "stable"}&q=${query.replace(/#/g, ".")}`)).json();
+    if (!embed || embed.error) return message.reply("What is that!");
+    
+    // delete everything until the next comment if you don't want to edit the embed
+    const docEmbed = new MessageEmbed(embed)
+      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+      .setTitle(`Discord.js (${args[1] || "stable"}`)
+      .setTimestamp();
+    
+    return message.channel.send(docEmbed);
+    
+    // this is the next comment >:(, delete the code below if you want to edit the embed
+    return message.channel.send({ embed });
+}}
