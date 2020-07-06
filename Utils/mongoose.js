@@ -16,7 +16,6 @@ module.exports = {
         mongoose.set('UseFindAndModify', false);
         mongoose.Promise = global.Promise;
 
-<<<<<<< HEAD
         mongoose.connection.on('connected', () => {
                 console.log("Mongoose has sucessfuly connected | Aura now connected to the DataBase")
         });
