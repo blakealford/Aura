@@ -20,6 +20,4 @@ module.exports = {
     
     return message.channel.send(docEmbed);
     
-    // this is the next comment >:(, delete the code below if you want to edit the embed
-    return message.channel.send({ embed });
 }}
