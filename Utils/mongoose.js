@@ -26,7 +26,7 @@ module.exports = {
 }
         mongoose.connection.on('connected', () => {
                 console.log("Mongoose has sucessfuly connected | Aura now connected to the DataBase")
-        }});
+        });
         mongoose.connection.on('err', err => {
             console.error(`Mongoose connection error: \n${err.stack}`)
         });
