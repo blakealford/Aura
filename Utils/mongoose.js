@@ -27,15 +27,14 @@ module.exports = {
     });
     }
 }
-=======
-//         mongoose.connection.on('connected', () => {
-//                 console.log("Mongoose has sucessfuly connected | Aura now connected to the DataBase")
-//         });
-//         mongoose.connection.on('err', err => {
-//             console.error(`Mongoose connection error: \n${err.stack}`)
-//         });
-//         mongoose.connection.on('disconnected', () => {
-//             console.warn("Mongoose connection lost ")
-//     });
-//     }};
->>>>>>> b6baf198f73995078b897716eda571cb379839ca
+
+        mongoose.connection.on('connected', () => {
+                console.log("Mongoose has sucessfuly connected | Aura now connected to the DataBase")
+        });
+        mongoose.connection.on('err', err => {
+            console.error(`Mongoose connection error: \n${err.stack}`)
+        });
+        mongoose.connection.on('disconnected', () => {
+            console.warn("Mongoose connection lost ")
+    });
+ }};
