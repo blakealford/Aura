@@ -29,6 +29,7 @@
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.21",
     "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
     "num-parse": "^1.0.1",
     "opusscript": "0.0.7",
     "os": "^0.1.1",
@@ -36,6 +37,7 @@
     "path": "^0.12.7",
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
+    "twemoji-parser": "^13.0.0",
     "weather-js": "^2.0.0",
     "ytdl-core": "^2.1.7"
   }

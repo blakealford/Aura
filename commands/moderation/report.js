@@ -10,21 +10,21 @@ module.exports = {
   run: async (client, message, args) => {
   let User = message.mentions.users.first() || null;
   let pleaseMention = new Discord.MessageEmbed()
-  .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!report [user] <reason>```")
+  .setDescription("<:AuraError:729237692054896721>  | Please mention a user ```usage | a!report [user] <reason>```")
   .setColor(colours.client_white)
   if (User == null) {
     return message.channel.send(pleaseMention);
   } else {
     let Reason = message.content.slice(prefix.length + 22 + 7) || null;
     let reasonReport = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | You need to specify a reason for the report")
+    .setDescription("<:AuraError:729237692054896721>  | You need to specify a reason for the report")
     .setColor(colours.client_white)
     if (Reason == null) {
       return message.channel.send(reasonReport);
     }
     let Avatar = User.displayAvatarURL({ dynamic: true, size: 512 });
     let reportChannelNotFound = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | There is no channel in this server with the name please create a channel called `reports`.")
+    .setDescription("<:AuraError:729237692054896721>  | There is no channel in this server with the name please create a channel called `reports`.")
     .setColor(colours.client_white)
     let Channel = message.guild.channels.cache.find(
       (ch) => ch.name === "reports"

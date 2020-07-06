@@ -8,7 +8,7 @@ module.exports = {
   description: "Sends an invite to the support server",
   run: async (client, message, args) => {
 let support = new Discord.MessageEmbed()
-.setDescription("<:AuraTick:722776339270205471> | Are you having problems with Aura? Then join our [support server](https://discord.gg/) and we will do our best to help you!")
+.setDescription("<:AuraTick:729239339417993230>  | Are you having problems with Aura? Then join our [support server](https://discord.gg/) and we will do our best to help you!")
 .setColor(colours.client_white)
 message.channel.send(support)
 }}

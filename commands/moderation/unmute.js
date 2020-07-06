@@ -7,7 +7,7 @@ module.exports = {
   run: async (client, message, args) => {
     let User = message.mentions.users.first();   
     let invaildPerms = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | You don't have a permissions to preform this command.")
+    .setDescription("<:AuraError:729237692054896721>  | You don't have a permissions to preform this command.")
     .setColor(colours.client_white)
     client.mute = new Discord.Collection();
     if (
@@ -18,13 +18,13 @@ module.exports = {
       return message.channel.send(invaildPerms);
     }
     let pleaseMention = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | Please mention a user ```usage | a!unmute [user] <reason>```")
+    .setDescription("<:AuraError:729237692054896721>  | Please mention a user ```usage | a!unmute [user] <reason>```")
     .setColor(colours.client_white)
     let cantFindMuted = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | Couldn't find the `Muted` role.")
+    .setDescription("<:AuraError:729237692054896721>  | Couldn't find the `Muted` role.")
     .setColor(colours.client_white)
     let instMuted = new Discord.MessageEmbed()
-    .setDescription("<:AuraCross:722776417368014858> | That user ins't muted.")
+    .setDescription("<:AuraError:729237692054896721>  | That user ins't muted.")
     .setColor(colours.client_white)
 
     let user =
@@ -54,7 +54,7 @@ module.exports = {
       )
       .setColor(colours.client_white)
       .setThumbnail(Avatar)
-      .setDescription(`<:AuraTick:722776339270205471> | Successfully unmuted **${User.tag}**`)
+      .setDescription(`<:AuraTick:729239339417993230>  | Successfully unmuted **${User.tag}**`)
       .addFields(
         { name: "Moderator", value: `${message.author.tag}`, inline: false },
         { name: "Unmuted User", value: `${User.tag}`, inline: false },
