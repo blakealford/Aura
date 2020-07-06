@@ -4,17 +4,13 @@ const config = require("./commands/JSON/botconfig.json")
 const prefix = config.prefix;
 const token = config.token;
 const colours = require('./commands/JSON/colours.json')
+const fs = require("fs")
 var version = "1.3"
 var path = require("path");
 var colourBlue = "0x6DE0B9";
 client.mongoose = require("./Utils/mongoose");
 const ytdl = require('ytdl-core')
-//Muisc Varibales 
-let musicConn;
-let musicChannel;
-let musicDispatcher;
-let queue = [];
-let npUrl ="";
+
 
 client.on('ready', () => {
 console.log(`Ready to serve in ${client.channels.cache.size} channels on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users.`);
@@ -76,5 +72,5 @@ client.on('messageDelete', message => {
           channel.send(embed);
 }}});
 
-client.mongoose.init();
+// client.mongoose.init();
 client.login(token);
