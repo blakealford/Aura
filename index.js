@@ -72,5 +72,5 @@ client.on('messageDelete', message => {
           channel.send(embed);
 }}});
 
-// client.mongoose.init();
+client.mongoose.init();
 client.login(token);
