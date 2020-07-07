@@ -22,7 +22,7 @@
 //             console.warn("Mongoose connection lost ")
 //     });
 //     }}
-//         mongoose.connection.on('connected', () => {
+//         mongoose.connection.on('conn\ected', () => {
 //                 console.log("Mongoose has sucessfuly connected | Aura now connected to the DataBase")
 //         });
 //         mongoose.connection.on('err', err => {
