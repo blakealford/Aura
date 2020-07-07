@@ -40,7 +40,7 @@ module.exports = {
     .setColor(colours.client_white)
     .addField("Joined", `${joindate}`, true)
     .addField("Registered", `${createdate}`, true)
-    .addField(`Roles`, `<@&${member._roles.join('> <@&')}>`)
+    .addField(`Role\\`, `<@&${member._roles.join('> <@&')}>`)
     .addField("Nickname", nickname)
     .addField("Current Status", status)
     

@@ -31,7 +31,6 @@ module.exports = {
         let succesfull = new Discord.MessageEmbed()
         .setDescription(`<:AuraTick:729239339417993230>  | I have deleted succesfully deleted **${message.size}/${args[0]}**`)
         .setColor(colours.client_white)
-        .then(messages => message.channel.send(succesfull)).then(d => d.delete({timeout: 10000})) 
-        .catch(() => message.channel.send(error))   
+        message.channel.send(succesfull).then(d => d.delete({timeout: 10000}))  
   }}
   
